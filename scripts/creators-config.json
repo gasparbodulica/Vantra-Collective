@@ -1,0 +1,63 @@
+[
+  {
+    "featured": true,
+    "handle": "@alix.earle",
+    "name": "Alix Earle",
+    "category": "Lifestyle & Beauty",
+    "platform": "TT",
+    "tiktokUsername": "alix.earle",
+    "tags": ["GRWM", "College Life", "Hauls"],
+    "verified": true,
+    "accent": "#E07B91",
+    "followers": "7.9M",
+    "engagement": "15.4%"
+  },
+  {
+    "handle": "@noel.deyzel",
+    "name": "Noel Deyzel",
+    "category": "Fitness & Physique",
+    "platform": "TT",
+    "tiktokUsername": "noel.deyzel",
+    "tags": ["Bodybuilding", "Training", "Mindset"],
+    "verified": true,
+    "accent": "#5BA3FF",
+    "followers": "2.5M",
+    "engagement": "11.2%"
+  },
+  {
+    "handle": "@mkbhd",
+    "name": "Marques Brownlee",
+    "category": "Tech & Reviews",
+    "platform": "YT",
+    "youtubeChannelId": "UCBJycsmduvYEL83R_U4JriQ",
+    "tags": ["Gadgets", "AI", "Reviews"],
+    "verified": true,
+    "accent": "#9B72FF",
+    "followers": "19.2M",
+    "engagement": "4.8%"
+  },
+  {
+    "handle": "@nick.digiovanni",
+    "name": "Nick DiGiovanni",
+    "category": "Food & Culinary",
+    "platform": "TT",
+    "tiktokUsername": "nick.digiovanni",
+    "tags": ["Cooking", "Records", "Premium"],
+    "verified": true,
+    "accent": "#F0A535",
+    "followers": "15.6M",
+    "engagement": "9.3%"
+  },
+  {
+    "handle": "@wisdom.kaye",
+    "name": "Wisdom Kaye",
+    "category": "Fashion & Style",
+    "platform": "TT",
+    "tiktokUsername": "wisdom.kaye",
+    "tags": ["Menswear", "Editorial", "OOTDs"],
+    "verified": true,
+    "accent": "#C8390F",
+    "followers": "5.3M",
+    "engagement": "8.1%"
+  }
+]

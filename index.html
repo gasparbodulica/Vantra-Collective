@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vantra Collective — Where Brands Meet What's Next</title>
+    <meta name="description" content="Vantra Collective is a performance-driven influencer marketing agency connecting brands with the creators shaping today's trends. Not yesterday's." />
+    <meta property="og:title" content="Vantra Collective — Where Brands Meet What's Next" />
+    <meta property="og:description" content="A flexible creator roster built to move at the speed of culture." />
+    <meta property="og:type" content="website" />
+    <!-- Fonts: Syne (premium geometric display) + DM Sans (clean body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+
+    <!-- ========= NAVIGATION ========= -->
+    <nav id="navbar">
+      <a href="#hero" class="nav-logo">Vantra<span class="nav-logo-dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="#what-we-do">What We Do</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#creators">Creators</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact" class="nav-cta magnetic">Request Roster</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- MOBILE NAV OVERLAY -->
+    <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true">
+      <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">✕</button>
+      <a href="#what-we-do" class="mobile-nav-link">What We Do</a>
+      <a href="#approach" class="mobile-nav-link">Our Approach</a>
+      <a href="#services" class="mobile-nav-link">Services</a>
+      <a href="#creators" class="mobile-nav-link">Creators</a>
+      <a href="#pricing" class="mobile-nav-link">Pricing</a>
+      <a href="#about" class="mobile-nav-link">About</a>
+      <a href="#contact" class="mobile-nav-link">Contact</a>
+    </div>
+
+    <!-- ========= HERO ========= -->
+    <section id="hero">
+      <!-- Three.js canvas mount -->
+      <div id="hero-canvas" aria-hidden="true"></div>
+      <!-- Subtle grain overlay -->
+      <div class="hero-grain" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+        <div class="hero-eyebrow reveal-line">
+          <span class="eyebrow-dash"></span>
+          <span>Brand × Creator Matchmaking Agency</span>
+        </div>
+
+        <h1 class="hero-headline">
+          <span class="reveal-word">Where</span>
+          <span class="reveal-word">Brands</span>
+          <span class="reveal-word">Meet</span><br>
+          <em class="reveal-word accent-word">What's Next.</em>
+        </h1>
+
+        <div class="hero-bottom">
+          <p class="hero-sub reveal-fade">
+            We match brands with the exact creators their audience already follows — then run the campaigns, the sponsored content, and the paid ads that turn that trust into results.
+          </p>
+          <div class="hero-cta-wrap reveal-fade">
+            <a href="#contact" class="btn-primary magnetic">Request Our Roster</a>
+            <a href="#what-we-do" class="hero-scroll-link">
+              <span class="scroll-line"></span>
+              <span>Scroll to explore</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= TIMES SQUARE BILLBOARD ========= -->
+    <div class="tsq-section" aria-hidden="true">
+
+      <!-- Row 1 — ad cards scrolling left -->
+      <div class="tsq-row tsq-row--1">
+        <div class="tsq-track">
+          <div class="tsq-ad tsq-ad--accent">
+            <span class="tsq-ad-label">Vantra Collective</span>
+            <span class="tsq-ad-headline">Brand × Creator</span>
+          </div>
+          <div class="tsq-ad tsq-ad--dark">
+            <span class="tsq-ad-label">150+ Active Creators</span>
+            <span class="tsq-ad-headline">Your Match Exists</span>
+          </div>
+          <div class="tsq-ad tsq-ad--light">
+            <span class="tsq-ad-label">TikTok · Instagram · YouTube</span>
+            <span class="tsq-ad-headline">Every Platform</span>
+          </div>
+          <div class="tsq-ad tsq-ad--accent">
+            <span class="tsq-ad-label">Short-Form &amp; Long-Form</span>
+            <span class="tsq-ad-headline">We Do Both</span>
+          </div>
+          <div class="tsq-ad tsq-ad--dark">
+            <span class="tsq-ad-label">Paid Ads That Convert</span>
+            <span class="tsq-ad-headline">Scale What Works</span>
+          </div>
+          <div class="tsq-ad tsq-ad--light">
+            <span class="tsq-ad-label">6 Global Markets</span>
+            <span class="tsq-ad-headline">Go Anywhere</span>
+          </div>
+          <!-- duplicate for seamless loop -->
+          <div class="tsq-ad tsq-ad--accent">
+            <span class="tsq-ad-label">Vantra Collective</span>
+            <span class="tsq-ad-headline">Brand × Creator</span>
+          </div>
+          <div class="tsq-ad tsq-ad--dark">
+            <span class="tsq-ad-label">150+ Active Creators</span>
+            <span class="tsq-ad-headline">Your Match Exists</span>
+          </div>
+          <div class="tsq-ad tsq-ad--light">
+            <span class="tsq-ad-label">TikTok · Instagram · YouTube</span>
+            <span class="tsq-ad-headline">Every Platform</span>
+          </div>
+          <div class="tsq-ad tsq-ad--accent">
+            <span class="tsq-ad-label">Short-Form &amp; Long-Form</span>
+            <span class="tsq-ad-headline">We Do Both</span>
+          </div>
+          <div class="tsq-ad tsq-ad--dark">
+            <span class="tsq-ad-label">Paid Ads That Convert</span>
+            <span class="tsq-ad-headline">Scale What Works</span>
+          </div>
+          <div class="tsq-ad tsq-ad--light">
+            <span class="tsq-ad-label">6 Global Markets</span>
+            <span class="tsq-ad-headline">Go Anywhere</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2 — bold words scrolling right (reverse) -->
+      <div class="tsq-row tsq-row--2">
+        <div class="tsq-track tsq-track--reverse">
+          <span class="tsq-word">CREATORS</span><span class="tsq-sep">✦</span>
+          <span class="tsq-word tsq-word--dim">BRANDS</span><span class="tsq-sep">✦</span>
+          <span class="tsq-word">TIKTOK</span><span class="tsq-sep">✦</span>
+          <span class="tsq-word tsq-word--dim">INSTAGRAM</span><span class="tsq-sep">✦</span>
+          <span class="tsq-word">YOUTUBE</span><span class="tsq-sep">✦</span>
+          <span class="tsq-word tsq-word--dim">PAID ADS</span><span class="tsq-sep">✦</span>
+          <span class="tsq-word">GLOBAL</span><span class="tsq-sep">✦</span>
+          <span class="tsq-word tsq-word--dim">VANTRA</span><span class="tsq-sep">✦</span>
+          <span class="tsq-word">CREATORS</span><span class="tsq-sep">✦</span>
+          <span class="tsq-word tsq-word--dim">BRANDS</span><span class="tsq-sep">✦</span>
+          <span class="tsq-word">TIKTOK</span><span class="tsq-sep">✦</span>
+          <span class="tsq-word tsq-word--dim">INSTAGRAM</span><span class="tsq-sep">✦</span>
+          <span class="tsq-word">YOUTUBE</span><span class="tsq-sep">✦</span>
+          <span class="tsq-word tsq-word--dim">PAID ADS</span><span class="tsq-sep">✦</span>
+          <span class="tsq-word">GLOBAL</span><span class="tsq-sep">✦</span>
+          <span class="tsq-word tsq-word--dim">VANTRA</span><span class="tsq-sep">✦</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========= WHAT WE DO ========= -->
+    <section id="what-we-do">
+      <div class="wwd-inner">
+        <div class="wwd-left">
+          <div class="section-label pop-left">What We Do</div>
+          <h2 class="section-headline fade-in">
+            We connect your brand<br>to the right creator.
+          </h2>
+          <div class="stats-grid">
+            <div class="stat pop-scale">
+              <div class="stat-num" data-count="150" data-suffix="+">0</div>
+              <div class="stat-label">Active Creators</div>
+            </div>
+            <div class="stat pop-scale">
+              <div class="stat-num" data-count="40" data-suffix="+">0</div>
+              <div class="stat-label">Campaigns Launched</div>
+            </div>
+            <div class="stat pop-scale">
+              <div class="stat-num" data-count="6" data-suffix="">0</div>
+              <div class="stat-label">Markets</div>
+            </div>
+            <div class="stat pop-scale">
+              <div class="stat-num" data-count="92" data-suffix="%">0</div>
+              <div class="stat-label">Client Retention</div>
+            </div>
+          </div>
+        </div>
+        <div class="wwd-right">
+          <div class="body-copy pop-right">
+            <p>Vantra Collective is a creator matchmaking and campaign agency. You tell us your brand and your audience — we find the influencers on TikTok, Instagram, and YouTube who already have that audience's trust, and we broker the partnership.</p>
+            <p>The creator publishes sponsored content that feels native to their feed. We manage the whole campaign — briefing, creative direction, approvals, and go-live. Then we amplify what's working with paid ads, turning organic creator reach into measurable, scalable results.</p>
+            <p>One agency. Your brand, the right creator, and a campaign that actually converts.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual pipeline -->
+      <div class="wwd-pipeline">
+        <div class="pipeline-step fade-in">
+          <div class="pipeline-icon">01</div>
+          <div class="pipeline-label">Your Brand</div>
+          <p class="pipeline-desc">You bring the brief, the product, and the goal.</p>
+        </div>
+        <div class="pipeline-arrow fade-in" aria-hidden="true">→</div>
+        <div class="pipeline-step fade-in">
+          <div class="pipeline-icon">02</div>
+          <div class="pipeline-label">We Find the Match</div>
+          <p class="pipeline-desc">We identify creators whose audience is already your customer.</p>
+        </div>
+        <div class="pipeline-arrow fade-in" aria-hidden="true">→</div>
+        <div class="pipeline-step fade-in">
+          <div class="pipeline-icon">03</div>
+          <div class="pipeline-label">Creator Goes Live</div>
+          <p class="pipeline-desc">Sponsored content runs on TikTok, Instagram &amp; YouTube — native to their feed, trusted by their audience.</p>
+        </div>
+        <div class="pipeline-arrow fade-in" aria-hidden="true">→</div>
+        <div class="pipeline-step fade-in">
+          <div class="pipeline-icon">04</div>
+          <div class="pipeline-label">Paid Ads Scale It</div>
+          <p class="pipeline-desc">We amplify the best-performing content with targeted paid ads to maximise reach and conversions.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ========= APPROACH ========= -->
+    <section id="approach">
+      <div class="approach-inner">
+        <div class="approach-header">
+          <div>
+            <div class="section-label pop-left">How It Works</div>
+            <h2 class="section-headline fade-in">Our approach,<br>in four steps.</h2>
+          </div>
+          <p class="approach-intro fade-in">
+            From identifying who's actually moving culture right now to clean delivery and transparent reporting — here's how a Vantra campaign works.
+          </p>
+        </div>
+        <div class="steps-grid">
+          <div class="step step--dark fade-in">
+            <div class="step-num">01</div>
+            <div class="step-title">Brief Us</div>
+            <p class="step-desc">Tell us your brand, your target audience, your platform, and your goal. That's all we need to start finding the right fit.</p>
+          </div>
+          <div class="step fade-in">
+            <div class="step-num">02</div>
+            <div class="step-title">We Find Your Creator</div>
+            <p class="step-desc">We identify creators on TikTok, Instagram, and YouTube whose audience already overlaps with your customer — and whose tone fits your brand naturally.</p>
+          </div>
+          <div class="step fade-in">
+            <div class="step-num">03</div>
+            <div class="step-title">Campaign Goes Live</div>
+            <p class="step-desc">The creator publishes sponsored content to their audience. We handle the brief, creative direction, approvals, and posting — then boost the best-performing content with paid ads.</p>
+          </div>
+          <div class="step fade-in">
+            <div class="step-num">04</div>
+            <div class="step-title">You Get the Results</div>
+            <p class="step-desc">Clear performance reporting after every campaign — reach, engagement, conversions, and a straight read on what to do next.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ========= SERVICES ========= -->
+    <section id="services">
+      <div class="services-inner">
+        <div class="services-header">
+          <div>
+            <div class="section-label pop-left">Services</div>
+            <h2 class="section-headline fade-in">What we offer.</h2>
+          </div>
+          <div class="services-header-right fade-in">
+            <p class="services-intro">
+              Short-form or long-form, one market or ten — we run creator campaigns across every format and every region. Click any service to learn more.
+            </p>
+            <div class="services-format-tags">
+              <span class="format-tag">Short-Form</span>
+              <span class="format-tag">Long-Form</span>
+              <span class="format-tag">Global</span>
+              <span class="format-tag">Multi-Platform</span>
+            </div>
+          </div>
+        </div>
+        <div class="service-list fade-in">
+
+          <div class="service-item">
+            <button class="service-trigger" aria-expanded="false">
+              <div class="service-left">
+                <span class="service-num">01</span>
+                <div>
+                  <div class="service-title">Campaign Strategy &amp; Management</div>
+                  <div class="service-tagline">Short-form, long-form, single market or global — fully handled end to end</div>
+                </div>
+              </div>
+              <div class="service-arrow" aria-hidden="true">+</div>
+            </button>
+            <div class="service-body">
+              <div class="service-body-inner">
+                We run campaigns across the full content spectrum and the full global map. Short-form — TikTok, Instagram Reels, YouTube Shorts — drives fast discovery and rapid engagement. Long-form — YouTube reviews, podcast integrations, editorial features — builds deeper trust that lasts. Most campaigns benefit from both, and we match the format to the goal.
+                <br><br>
+                Globally, trend cycles don't respect borders and neither do we. Our creator network spans multiple markets — we adapt creator selection, language, and platform mix per region while keeping your brand message coherent. You brief us on the goal; we handle creator selection, briefing, content review, posting schedules, and performance tracking from start to finish.
+              </div>
+            </div>
+          </div>
+
+          <div class="service-item">
+            <button class="service-trigger" aria-expanded="false">
+              <div class="service-left">
+                <span class="service-num">02</span>
+                <div>
+                  <div class="service-title">Creator Matchmaking &amp; Partnerships</div>
+                  <div class="service-tagline">The right creator once — or the right relationship for the long run</div>
+                </div>
+              </div>
+              <div class="service-arrow" aria-hidden="true">+</div>
+            </button>
+            <div class="service-body">
+              <div class="service-body-inner">
+                We go beyond follower count. Our matchmaking process digs into audience demographics, brand affinity, tone-of-voice alignment, and content performance history to find creators whose audience genuinely overlaps with your customers. The result is campaigns that feel native, not placed.
+                <br><br>
+                For brands thinking longer term, we also build sustained creator partnerships — ongoing relationships that compound over time. Repeated touchpoints build real trust with an audience in a way that no single post ever can. We manage the full relationship so it stays alive, on-brand, and performing.
+              </div>
+            </div>
+          </div>
+
+          <div class="service-item">
+            <button class="service-trigger" aria-expanded="false">
+              <div class="service-left">
+                <span class="service-num">03</span>
+                <div>
+                  <div class="service-title">Content Licensing &amp; UGC</div>
+                  <div class="service-tagline">Creator content that works in paid media, on your site, and beyond</div>
+                </div>
+              </div>
+              <div class="service-arrow" aria-hidden="true">+</div>
+            </button>
+            <div class="service-body">
+              <div class="service-body-inner">
+                Creator-made content consistently outperforms polished brand content in paid media. We source and license UGC from our network — short-form video, long-form reviews, photo, and editorial formats — that you can run as paid social ads, on your website, or in email campaigns. Clean licensing agreements, no rights headaches.
+              </div>
+            </div>
+          </div>
+
+          <div class="service-item">
+            <button class="service-trigger" aria-expanded="false">
+              <div class="service-left">
+                <span class="service-num">04</span>
+                <div>
+                  <div class="service-title">Events, Gifting &amp; Activations</div>
+                  <div class="service-tagline">Physical brand moments with digital reach built in</div>
+                </div>
+              </div>
+              <div class="service-arrow" aria-hidden="true">+</div>
+            </button>
+            <div class="service-body">
+              <div class="service-body-inner">
+                Physical moments drive digital amplification. We source and manage creators for brand events, product launches, pop-ups, and activations — ensuring real-time content across short and long-form formats, live audience reach, and post-event coverage that extends the moment well beyond the day itself.
+                <br><br>
+                We also run strategic gifting and seeding programs — identifying the right tier of creators globally, managing product delivery and follow-up, and tracking organic coverage. Getting product into the right hands before a paid campaign is one of the highest-ROI moves in creator marketing. We do it properly.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ========= CREATOR SHOWCASE ========= -->
+    <section id="creators">
+      <div class="creators-inner">
+        <div class="creators-header">
+          <div>
+            <div class="section-label">Creator Showcase</div>
+            <h2 class="section-headline">This Month's<br>Trending Creators.</h2>
+          </div>
+          <div class="creators-header-right">
+            <p class="creators-note">
+              Real creators, real traction. Our featured roster is refreshed each month as new voices break through.
+            </p>
+            <p class="creators-updated" id="creatorsUpdated"></p>
+          </div>
+        </div>
+
+        <!-- Rendered by main.js from src/creators-data.js -->
+        <div class="creators-grid" id="creatorsGrid"></div>
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ========= PRICING ========= -->
+    <section id="pricing">
+      <div class="pricing-inner">
+        <div class="pricing-header">
+          <div>
+            <div class="section-label pop-left">Pricing</div>
+            <h2 class="section-headline fade-in">Simple, transparent<br>pricing.</h2>
+          </div>
+          <p class="pricing-intro fade-in">
+            Every plan includes dedicated account management and performance reporting. Choose the scope that fits where you are right now.
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+
+          <!-- STARTER -->
+          <div class="pricing-card fade-in">
+            <div class="pricing-plan">Starter</div>
+            <div class="pricing-amount">
+              <span class="pricing-currency">€</span>
+              <span class="pricing-num">1,750</span>
+              <span class="pricing-period">/ campaign</span>
+            </div>
+            <p class="pricing-desc">For brands testing creator marketing for the first time or running a single focused activation.</p>
+            <ul class="pricing-features">
+              <li>Up to 3 creators</li>
+              <li>1 platform (TikTok, IG, or YT)</li>
+              <li>Creator briefing &amp; content review</li>
+              <li>Campaign performance report</li>
+              <li>2-week turnaround</li>
+            </ul>
+            <a href="#contact" class="pricing-cta">Get Started →</a>
+          </div>
+
+          <!-- GROWTH — highlighted -->
+          <div class="pricing-card pricing-card--featured fade-in">
+            <div class="pricing-badge">Most Popular</div>
+            <div class="pricing-plan">Growth</div>
+            <div class="pricing-amount">
+              <span class="pricing-currency">€</span>
+              <span class="pricing-num">4,000</span>
+              <span class="pricing-period">/ campaign</span>
+            </div>
+            <p class="pricing-desc">For brands ready to scale with a multi-creator, multi-platform campaign and ongoing support.</p>
+            <ul class="pricing-features">
+              <li>Up to 8 creators</li>
+              <li>Multi-platform (TikTok + IG + YT)</li>
+              <li>Full campaign management</li>
+              <li>UGC licensing for paid media</li>
+              <li>Dedicated account manager</li>
+              <li>Detailed analytics &amp; insights</li>
+            </ul>
+            <a href="#contact" class="pricing-cta pricing-cta--dark">Get Started →</a>
+          </div>
+
+          <!-- ENTERPRISE — per request -->
+          <div class="pricing-card pricing-card--enterprise fade-in">
+            <div class="pricing-plan">Enterprise</div>
+            <div class="pricing-amount pricing-amount--custom">
+              <span class="pricing-custom-label">Per Request</span>
+            </div>
+            <p class="pricing-desc">Fully bespoke campaigns for larger brands — custom scope, creator count, markets, and retainer structures.</p>
+            <ul class="pricing-features">
+              <li>Unlimited creators</li>
+              <li>All markets &amp; platforms</li>
+              <li>Custom retainer options</li>
+              <li>Event &amp; activation talent</li>
+              <li>Legal &amp; contract consultation</li>
+              <li>Priority account management</li>
+              <li>Monthly strategy sessions</li>
+            </ul>
+            <a href="#contact" class="pricing-cta">Request a Quote →</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= THE STANDARD ========= -->
+    <section id="standard">
+      <div class="standard-inner">
+
+        <div class="standard-header">
+          <div class="section-label pop-left">Why Vantra</div>
+          <h2 class="section-headline fade-in">What we commit to,<br>every single campaign.</h2>
+          <p class="standard-sub fade-in">
+            Every agency talks about results. We put it in writing. These are the commitments we hold ourselves to on every campaign, with every brand — no exceptions.
+          </p>
+        </div>
+
+        <div class="standard-grid">
+
+          <div class="standard-card fade-in">
+            <div class="standard-num">01</div>
+            <div class="standard-title">48-Hour Response</div>
+            <p class="standard-text">Every brief, question, or revision gets a real reply within 48 hours. No chasing, no radio silence — we move at the speed you need.</p>
+          </div>
+
+          <div class="standard-card fade-in">
+            <div class="standard-num">02</div>
+            <div class="standard-title">Creator-First Matching</div>
+            <p class="standard-text">We only propose creators we'd genuinely back. If the fit isn't right, we say so — and find someone who is. No padding the roster with names that don't fit.</p>
+          </div>
+
+          <div class="standard-card fade-in">
+            <div class="standard-num">03</div>
+            <div class="standard-title">Transparent Reporting</div>
+            <p class="standard-text">After every campaign, you get a clear performance report — real numbers, honest analysis, and a straight read on what to do differently next time.</p>
+          </div>
+
+          <div class="standard-card fade-in">
+            <div class="standard-num">04</div>
+            <div class="standard-title">No Long-Term Lock-In</div>
+            <p class="standard-text">We earn continued partnerships by delivering results, not by locking you into a 12-month contract. Start with one campaign and scale from there.</p>
+          </div>
+
+        </div>
+
+        <div class="founding-block fade-in">
+          <div class="founding-left">
+            <div class="founding-label">Founding Partner Program</div>
+            <h3 class="founding-title">We're selective about<br>who we work with.</h3>
+            <p class="founding-text">Vantra operates with a deliberately limited number of brand partners at any given time. That's not a constraint — it's the point. Fewer brands means more attention, deeper creator relationships, and campaigns we can actually stand behind. Founding partners get priority roster access, locked-in rates, and a dedicated team that knows your brand inside out.</p>
+          </div>
+          <div class="founding-right">
+            <a href="#contact" class="btn-primary magnetic">Apply Now →</a>
+            <p class="founding-note">Limited spots available. No commitment to apply.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========= ABOUT ========= -->
+    <section id="about">
+      <div class="about-inner">
+        <div class="about-top">
+          <div class="about-headline-col">
+            <div class="section-label pop-left">About</div>
+            <h2 class="about-headline fade-in">
+              Built to move<br>with the <em>market.</em>
+            </h2>
+          </div>
+          <div class="about-text fade-in">
+            <p>Most agencies pick a niche and stay there. We didn't.</p>
+            <p>Vantra Collective was built on a simple observation: trends move faster than the agencies built to capitalize on them. By the time a "lifestyle agency" or a "fitness-only roster" catches up to what's actually working, the moment has usually passed.</p>
+            <p>So we built something different — an agency structured around <strong>attention itself</strong>, not a fixed category. Our roster shifts with what's gaining traction, which means the brands we work with are never chasing last quarter's trend. They're already in it.</p>
+            <p>We started small — testing what kind of creator partnerships actually moved numbers, not just impressions — and built our process around staying close to the data instead of a fixed playbook. What began as a handful of partnerships has grown into a flexible, trend-responsive roster working across multiple markets.</p>
+            <p>We're still not interested in being "the fitness agency" or "the lifestyle agency." <strong>We're interested in being right about what's next.</strong></p>
+          </div>
+        </div>
+        <div class="how-different">
+          <div class="section-label pop-left">How We're Different</div>
+          <div class="diff-grid">
+            <div class="diff-card fade-in">
+              <div class="diff-num">01</div>
+              <div class="diff-title">No Fixed Niche</div>
+              <p class="diff-text">Our roster adapts to what's actually trending, not what's comfortable. We don't lock into a vertical — we lock into what's working right now.</p>
+            </div>
+            <div class="diff-card fade-in">
+              <div class="diff-num">02</div>
+              <div class="diff-title">Relationship-First</div>
+              <p class="diff-text">We build long-term creator and brand partnerships, not one-off placements. Sustained relationships compound — the results get better over time.</p>
+            </div>
+            <div class="diff-card fade-in">
+              <div class="diff-num">03</div>
+              <div class="diff-title">Execution-Focused</div>
+              <p class="diff-text">Strategy means nothing without fast, clean delivery. That's where we spend most of our energy — getting the work out the door and performing.</p>
+            </div>
+            <div class="diff-card fade-in">
+              <div class="diff-num">04</div>
+              <div class="diff-title">Transparent Reporting</div>
+              <p class="diff-text">You'll always know what worked, what didn't, and why. No vanity metrics, no spin — just clear data and honest analysis after every campaign.</p>
+            </div>
+          </div>
+        </div>
+        <div class="about-cta-block fade-in">
+          <p class="about-cta-text">Want to work with creators who are already where the attention is going?</p>
+          <a href="#contact" class="btn-primary magnetic">Request Our Roster →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= CONTACT ========= -->
+    <section id="contact">
+      <div class="contact-inner">
+        <div class="contact-left">
+          <div class="section-label pop-left">Get In Touch</div>
+          <h2 class="section-headline fade-in">Let's build your<br>next campaign.</h2>
+          <p class="contact-sub fade-in">Tell us about your brand and what you're trying to achieve. We'll get back to you within 48 hours.</p>
+          <div class="contact-details fade-in">
+            <div class="contact-detail">
+              <a href="mailto:hello@vantracollective.com">hello@vantracollective.com</a>
+            </div>
+            <div class="contact-detail">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+              &nbsp;·&nbsp;
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-right fade-in">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-name">Name <span class="req">*</span></label>
+                <input type="text" id="f-name" name="name" placeholder="Your full name" autocomplete="name" required />
+              </div>
+              <div class="form-group">
+                <label for="f-email">Email <span class="req">*</span></label>
+                <input type="email" id="f-email" name="email" placeholder="your@email.com" autocomplete="email" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-brand">Brand / Company <span class="req">*</span></label>
+                <input type="text" id="f-brand" name="brand" placeholder="Your brand or company name" required />
+              </div>
+              <div class="form-group">
+                <label for="f-socials">Social Handles</label>
+                <input type="text" id="f-socials" name="socials" placeholder="@yourbrand" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="f-details">Project Details <span class="req">*</span></label>
+              <textarea id="f-details" name="details" placeholder="Tell us about your campaign goals, target audience, budget range, and timeline." required></textarea>
+            </div>
+            <div class="consent-row">
+              <input type="checkbox" id="f-consent" name="consent" class="consent-check" required />
+              <label for="f-consent" class="consent-label">
+                By submitting, you agree to let Vantra Collective contact you regarding your inquiry. We respect your privacy and never share your data — see our <a href="#contact">Privacy Policy</a>.
+              </label>
+            </div>
+            <div class="form-footer">
+              <span class="form-note">We reply within 48 hours.</span>
+              <button type="submit" class="btn-primary magnetic">Request Roster</button>
+            </div>
+          </form>
+          <div class="form-success" id="formSuccess" hidden>
+            <div class="form-success-check">✓</div>
+            <h3>Thanks — we'll be in touch.</h3>
+            <p>Your request has been received. Expect a reply from our team within 48 hours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= FOOTER ========= -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="footer-logo">Vantra<span style="color:var(--accent)">.</span></div>
+            <p class="footer-tagline">A performance-driven creator agency. We connect brands with the creators shaping today's trends — not yesterday's.</p>
+            <p class="footer-entity">Vantra Collective d.o.o. &nbsp;·&nbsp; [City, Country]</p>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Navigate</div>
+            <ul class="footer-links">
+              <li><a href="#hero">Home</a></li>
+              <li><a href="#what-we-do">What We Do</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#creators">Creators</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Company</div>
+            <ul class="footer-links">
+              <li><a href="#about">Our Story</a></li>
+              <li><a href="mailto:careers@vantracollective.com">Careers</a></li>
+              <li><a href="#contact">Privacy Policy</a></li>
+              <li><a href="#contact">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Follow Us</div>
+            <div class="footer-socials">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link">
+                <span class="social-icon">IG</span>Instagram
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link">
+                <span class="social-icon">in</span>LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-copy">© Vantra Collective 2026. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#contact">Privacy Policy</a>
+            <a href="#contact">Terms of Service</a>
+            <a href="mailto:careers@vantracollective.com">Careers</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

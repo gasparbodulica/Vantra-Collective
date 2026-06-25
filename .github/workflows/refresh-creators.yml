@@ -1,0 +1,41 @@
+name: Refresh Creator Data
+
+on:
+  # Runs on the 1st of every month at 06:00 UTC
+  schedule:
+    - cron: '0 6 1 * *'
+
+  # Allow manual trigger from GitHub UI (Actions → Refresh Creator Data → Run workflow)
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # needed to commit the updated data file
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch latest creator stats
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: node scripts/refresh-creators.mjs
+
+      - name: Commit updated creator data
+        run: |
+          git config user.name  "Vantra Bot"
+          git config user.email "bot@vantracollective.com"
+          git add src/creators-data.js
+          if git diff --cached --quiet; then
+            echo "No changes to commit — data is already up to date."
+          else
+            git commit -m "chore: refresh creator stats for $(date +'%B %Y')"
+            git push
+          fi
