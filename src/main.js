@@ -246,8 +246,32 @@ function renderCreators() {
 }
 
 /* ================================================
-   CONTACT FORM
+   CONTACT FORM — type-aware labels
    ================================================ */
+const typeSelect   = document.getElementById('f-type');
+const brandLabel   = document.getElementById('f-brand-label');
+const socialsLabel = document.getElementById('f-socials-label');
+const brandInput   = document.getElementById('f-brand');
+const socialsInput = document.getElementById('f-socials');
+const detailsInput = document.getElementById('f-details');
+
+if (typeSelect) {
+  typeSelect.addEventListener('change', () => {
+    const isCreator = typeSelect.value === 'creator';
+
+    brandLabel.innerHTML   = isCreator
+      ? 'Creator Name / Handle <span class="req">*</span>'
+      : 'Brand / Company <span class="req">*</span>';
+    socialsLabel.textContent = isCreator ? 'Your Platforms' : 'Social Handles';
+
+    brandInput.placeholder   = isCreator ? 'Your name or @handle' : 'Your brand or company name';
+    socialsInput.placeholder = isCreator ? 'TikTok, Instagram, YouTube…' : '@yourbrand';
+    detailsInput.placeholder = isCreator
+      ? 'Tell us about your content, your niche, follower count, and what kind of brands you want to work with.'
+      : 'Tell us about your campaign goals, target audience, budget range, and timeline.';
+  });
+}
+
 const contactForm = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
 

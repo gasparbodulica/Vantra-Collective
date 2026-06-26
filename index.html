@@ -422,7 +422,7 @@
             </div>
             <p class="pricing-desc">For brands testing creator marketing for the first time or running a single focused activation.</p>
             <ul class="pricing-features">
-              <li>Up to 3 creators</li>
+              <li>Up to 2 creators</li>
               <li>1 platform (TikTok, IG, or YT)</li>
               <li>Creator briefing &amp; content review</li>
               <li>Campaign performance report</li>
@@ -442,7 +442,7 @@
             </div>
             <p class="pricing-desc">For brands ready to scale with a multi-creator, multi-platform campaign and ongoing support.</p>
             <ul class="pricing-features">
-              <li>Up to 8 creators</li>
+              <li>Up to 5 creators</li>
               <li>Multi-platform (TikTok + IG + YT)</li>
               <li>Full campaign management</li>
               <li>UGC licensing for paid media</li>
@@ -601,8 +601,8 @@
       <div class="contact-inner">
         <div class="contact-left">
           <div class="section-label pop-left">Get In Touch</div>
-          <h2 class="section-headline fade-in">Let's build your<br>next campaign.</h2>
-          <p class="contact-sub fade-in">Tell us about your brand and what you're trying to achieve. We'll get back to you within 48 hours.</p>
+          <h2 class="section-headline fade-in">Brand or creator —<br>let's talk.</h2>
+          <p class="contact-sub fade-in">Whether you're a brand looking to run a campaign or a creator looking for brand deals, fill in the form and we'll get back to you within 48 hours.</p>
           <div class="contact-details fade-in">
             <div class="contact-detail">
               <a href="mailto:hello@vantracollective.com">hello@vantracollective.com</a>
@@ -616,6 +616,17 @@
         </div>
         <div class="contact-right fade-in">
           <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="f-type">I am a… <span class="req">*</span></label>
+              <div class="select-wrap">
+                <select id="f-type" name="type" required>
+                  <option value="" disabled selected>Select one</option>
+                  <option value="brand">Brand — I want to run a campaign with creators</option>
+                  <option value="creator">Creator — I want to get matched with brands</option>
+                </select>
+                <span class="select-arrow" aria-hidden="true">↓</span>
+              </div>
+            </div>
             <div class="form-row">
               <div class="form-group">
                 <label for="f-name">Name <span class="req">*</span></label>
@@ -628,16 +639,16 @@
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label for="f-brand">Brand / Company <span class="req">*</span></label>
+                <label for="f-brand" id="f-brand-label">Brand / Company <span class="req">*</span></label>
                 <input type="text" id="f-brand" name="brand" placeholder="Your brand or company name" required />
               </div>
               <div class="form-group">
-                <label for="f-socials">Social Handles</label>
+                <label for="f-socials" id="f-socials-label">Social Handles</label>
                 <input type="text" id="f-socials" name="socials" placeholder="@yourbrand" />
               </div>
             </div>
             <div class="form-group">
-              <label for="f-details">Project Details <span class="req">*</span></label>
+              <label for="f-details">Tell Us More <span class="req">*</span></label>
               <textarea id="f-details" name="details" placeholder="Tell us about your campaign goals, target audience, budget range, and timeline." required></textarea>
             </div>
             <div class="consent-row">
@@ -648,7 +659,7 @@
             </div>
             <div class="form-footer">
               <span class="form-note">We reply within 48 hours.</span>
-              <button type="submit" class="btn-primary magnetic">Request Roster</button>
+              <button type="submit" class="btn-primary magnetic">Send →</button>
             </div>
           </form>
           <div class="form-success" id="formSuccess" hidden>
