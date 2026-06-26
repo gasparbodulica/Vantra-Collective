@@ -1208,6 +1208,17 @@ nav.scrolled {
   color: var(--text);
 }
 
+.pricing-fee-note {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.pricing-card--featured .pricing-fee-note { color: rgba(200,57,15,0.8); }
+
 .pricing-desc {
   font-family: var(--sans);
   font-size: 0.9rem;
