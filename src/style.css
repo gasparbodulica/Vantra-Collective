@@ -1388,7 +1388,7 @@ nav.scrolled {
 /* 4-column grid for the commitment cards */
 .standard-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2px;
   margin-bottom: 3px;
 }
