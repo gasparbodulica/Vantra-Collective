@@ -613,6 +613,9 @@ nav.scrolled {
   display: block;
   margin: 0 auto;
   overflow: visible;
+  /* Fade both edges so bridge appears to extend beyond view */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 13%, black 87%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 13%, black 87%, transparent 100%);
 }
 .bridge-caption {
   text-align: center;
@@ -624,107 +627,86 @@ nav.scrolled {
   letter-spacing: 0.01em;
 }
 
-/* ── Walk-in: people slide in from each end on scroll ── */
+/* ── Walk-in: people slide from bridge entry points ── */
 .person-brand-outer {
-  transform: translateX(-290px);
-  transition: transform 2.2s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateX(-258px);
+  transition: transform 2.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .person-creator-outer {
-  transform: translateX(290px);
-  transition: transform 2.2s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.shadow-brand {
-  transform: translateX(-290px);
-  transition: transform 2.2s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.shadow-creator {
-  transform: translateX(290px);
-  transition: transform 2.2s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateX(258px);
+  transition: transform 2.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* When walk is triggered, slide to resting position */
-.bridge-wrap.walk-active .person-brand-outer,
-.bridge-wrap.walk-active .shadow-brand  { transform: translateX(0); }
-.bridge-wrap.walk-active .person-creator-outer,
-.bridge-wrap.walk-active .shadow-creator { transform: translateX(0); }
+.bridge-wrap.walk-active .person-brand-outer  { transform: translateX(0); }
+.bridge-wrap.walk-active .person-creator-outer { transform: translateX(0); }
 
-/* ── Bob: inner group bounces vertically while walking ── */
+/* ── Body animation while walking (bob + sway) ── */
 .bridge-wrap.walk-active .person-brand-inner {
-  animation: walk-bob 0.44s ease-in-out infinite;
+  animation: body-walk-R 0.48s ease-in-out infinite;
 }
 .bridge-wrap.walk-active .person-creator-inner {
-  animation: walk-bob 0.44s ease-in-out infinite 0.22s;
-}
-@keyframes walk-bob {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-4px); }
+  animation: body-walk-L 0.48s ease-in-out infinite 0.24s;
 }
 
-/* ── Limb swing: legs and arms alternate ── */
-/* Brand (facing right, walking right) */
-.bridge-wrap.walk-active .leg-brand-L {
-  transform-box: fill-box; transform-origin: 100% 0%;
-  animation: swing-fwd 0.44s ease-in-out infinite alternate;
+/* Walking right: bob up + slight sway left→right */
+@keyframes body-walk-R {
+  0%   { transform: translateY(0)   rotate(-1.2deg); }
+  50%  { transform: translateY(-4px) rotate(1.2deg); }
+  100% { transform: translateY(0)   rotate(-1.2deg); }
 }
-.bridge-wrap.walk-active .leg-brand-R {
-  transform-box: fill-box; transform-origin: 0% 0%;
-  animation: swing-fwd 0.44s ease-in-out infinite alternate-reverse;
+/* Walking left: bob up + slight sway right→left */
+@keyframes body-walk-L {
+  0%   { transform: translateY(0)   rotate(1.2deg); }
+  50%  { transform: translateY(-4px) rotate(-1.2deg); }
+  100% { transform: translateY(0)   rotate(1.2deg); }
 }
-.bridge-wrap.walk-active .arm-brand-L {
-  transform-box: fill-box; transform-origin: 100% 0%;
-  animation: swing-fwd 0.44s ease-in-out infinite alternate-reverse;
-}
+
+/* ── Arm swing (upper body only — no legs) ── */
+/* Brand right arm (forward): pivot at shoulder (360, 168) — top-left of bbox */
 .bridge-wrap.walk-active .arm-brand-R {
   transform-box: fill-box; transform-origin: 0% 0%;
-  animation: swing-fwd 0.44s ease-in-out infinite alternate;
+  animation: arm-swing 0.48s ease-in-out infinite alternate;
 }
-
-/* Creator (facing left, walking left — mirrored swing) */
-.bridge-wrap.walk-active .leg-creator-L {
-  transform-box: fill-box; transform-origin: 0% 0%;
-  animation: swing-fwd 0.44s ease-in-out infinite alternate-reverse;
-}
-.bridge-wrap.walk-active .leg-creator-R {
+/* Brand left arm (back): pivot at shoulder (320, 168) — top-right of bbox */
+.bridge-wrap.walk-active .arm-brand-L {
   transform-box: fill-box; transform-origin: 100% 0%;
-  animation: swing-fwd 0.44s ease-in-out infinite alternate;
+  animation: arm-swing 0.48s ease-in-out infinite alternate-reverse;
 }
+/* Creator left arm (forward toward centre): pivot at shoulder (740, 168) — top-right of bbox */
 .bridge-wrap.walk-active .arm-creator-L {
-  transform-box: fill-box; transform-origin: 0% 0%;
-  animation: swing-fwd 0.44s ease-in-out infinite alternate;
-}
-.bridge-wrap.walk-active .arm-creator-R {
   transform-box: fill-box; transform-origin: 100% 0%;
-  animation: swing-fwd 0.44s ease-in-out infinite alternate-reverse;
+  animation: arm-swing 0.48s ease-in-out infinite alternate;
+}
+/* Creator right arm (back): pivot at shoulder (780, 168) — top-left of bbox */
+.bridge-wrap.walk-active .arm-creator-R {
+  transform-box: fill-box; transform-origin: 0% 0%;
+  animation: arm-swing 0.48s ease-in-out infinite alternate-reverse;
 }
 
-@keyframes swing-fwd {
-  from { transform: rotate(-16deg); }
-  to   { transform: rotate(16deg); }
+@keyframes arm-swing {
+  from { transform: rotate(-18deg); }
+  to   { transform: rotate(18deg); }
 }
 
 /* ── Meeting glow ── */
-.bridge-glow--outer { opacity: 0.07; animation: glow-pulse 2.8s ease-in-out infinite; }
-.bridge-glow--inner { opacity: 0.16; animation: glow-pulse 2.8s ease-in-out infinite 0.4s; }
+.bridge-glow--outer { opacity: 0.07; animation: glow-pulse 3s ease-in-out infinite; }
+.bridge-glow--inner { opacity: 0.18; animation: glow-pulse 3s ease-in-out infinite 0.5s; }
 @keyframes glow-pulse {
   0%, 100% { opacity: 0.07; }
-  50%       { opacity: 0.18; }
+  50%       { opacity: 0.20; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .person-brand-outer, .person-creator-outer,
-  .shadow-brand, .shadow-creator { transition: none; }
+  .person-brand-outer, .person-creator-outer { transition: none; }
   .person-brand-inner, .person-creator-inner,
-  .leg-brand-L, .leg-brand-R, .arm-brand-L, .arm-brand-R,
-  .leg-creator-L, .leg-creator-R, .arm-creator-L, .arm-creator-R,
+  .arm-brand-R, .arm-brand-L, .arm-creator-L, .arm-creator-R,
   .bridge-glow--outer, .bridge-glow--inner { animation: none; }
 }
 
 @media (max-width: 600px) {
   .bridge-wrap { margin-top: 56px; padding-top: 48px; }
-  .person-brand-outer { transform: translateX(-180px); }
+  .person-brand-outer  { transform: translateX(-180px); }
   .person-creator-outer { transform: translateX(180px); }
-  .shadow-brand { transform: translateX(-180px); }
-  .shadow-creator { transform: translateX(180px); }
 }
 
 /* ================================================
