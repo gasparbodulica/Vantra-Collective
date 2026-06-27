@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initSmoothScroll();
   initParallax();
+  initCookieBanner();
 });
 
 /* ================================================
@@ -337,6 +338,25 @@ function runTimelineAnim(bridge) {
 
   raf = requestAnimationFrame(tick);
   return () => { if (raf) cancelAnimationFrame(raf); };
+}
+
+/* ================================================
+   COOKIE BANNER
+   ================================================ */
+function initCookieBanner() {
+  const banner = document.getElementById('cookieBanner');
+  if (!banner) return;
+  if (localStorage.getItem('cookie-consent')) return;
+  banner.removeAttribute('hidden');
+
+  document.getElementById('cookieAccept')?.addEventListener('click', () => {
+    localStorage.setItem('cookie-consent', 'accepted');
+    banner.setAttribute('hidden', '');
+  });
+  document.getElementById('cookieReject')?.addEventListener('click', () => {
+    localStorage.setItem('cookie-consent', 'rejected');
+    banner.setAttribute('hidden', '');
+  });
 }
 
 /* ================================================
