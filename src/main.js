@@ -247,22 +247,96 @@ function renderCreators() {
 }
 
 /* ================================================
-   BRIDGE WALK — scroll-triggered walk animation
+   TIMELINE — scroll-triggered convergence animation
+   Replays every time the section scrolls into view.
+   All geometry in SVG user units (no CSS px ambiguity).
    ================================================ */
 function initBridgeWalk() {
   const bridge = document.getElementById('bridgeIllustration');
   if (!bridge) return;
 
+  // On mobile, zoom into the centre 660 SVG units so elements are legible.
+  // Dots start off-screen and fly in — cinematic side-effect.
+  const svg = bridge.querySelector('.bridge-svg');
+  function applyViewBox() {
+    if (!svg) return;
+    svg.setAttribute('viewBox', window.innerWidth < 640
+      ? '220 60 660 160'   // zoomed: x=220→880, y=60→220; scale ≈ 0.57× at 375px
+      : '0 0 1100 240');
+  }
+  applyViewBox();
+  window.addEventListener('resize', applyViewBox, { passive: true });
+
+  let cancelAnim = null;
+
+  function resetTimeline() {
+    if (cancelAnim) { cancelAnim(); cancelAnim = null; }
+    bridge.classList.remove('walk-active');
+    const brandG    = bridge.querySelector('.tl-traveler--brand');
+    const creatorG  = bridge.querySelector('.tl-traveler--creator');
+    const brandRect = bridge.querySelector('#tl-brand-rect');
+    const crtRect   = bridge.querySelector('#tl-creator-rect');
+    if (brandG)    brandG.setAttribute('transform',   'translate(0,0)');
+    if (creatorG)  creatorG.setAttribute('transform', 'translate(0,0)');
+    if (brandRect) brandRect.setAttribute('width', 0);
+    if (crtRect)   { crtRect.setAttribute('x', 1010); crtRect.setAttribute('width', 0); }
+  }
+
   const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        bridge.classList.add('walk-active');
-        io.unobserve(entry.target);
+        resetTimeline();
+        cancelAnim = runTimelineAnim(bridge);
+      } else {
+        resetTimeline();
       }
     });
   }, { threshold: 0.25 });
 
   io.observe(bridge);
+}
+
+function runTimelineAnim(bridge) {
+  bridge.classList.add('walk-active'); // triggers CSS: label fade, ring burst, dot colour
+
+  const brandG    = bridge.querySelector('.tl-traveler--brand');
+  const creatorG  = bridge.querySelector('.tl-traveler--creator');
+  const brandRect = bridge.querySelector('#tl-brand-rect');
+  const crtRect   = bridge.querySelector('#tl-creator-rect');
+
+  if (!brandG || !creatorG) return () => {};
+
+  const TRAVEL   = 460;  // SVG units each dot moves (brand: 90→550, creator: 1010→550)
+  const DURATION = 2200; // ms
+  const DELAY    = 500;  // ms pause before dots start
+
+  function ease(t) {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+
+  let raf = null;
+  let t0  = null;
+
+  function tick(ts) {
+    if (!t0) t0 = ts;
+    const elapsed = ts - t0 - DELAY;
+    if (elapsed < 0) { raf = requestAnimationFrame(tick); return; }
+
+    const t = Math.min(elapsed / DURATION, 1);
+    const e = ease(t);
+    const d = e * TRAVEL;
+
+    brandG.setAttribute('transform',   `translate(${d},0)`);
+    creatorG.setAttribute('transform', `translate(${-d},0)`);
+
+    if (brandRect) brandRect.setAttribute('width', d);
+    if (crtRect)   { crtRect.setAttribute('x', 1010 - d); crtRect.setAttribute('width', d); }
+
+    if (t < 1) raf = requestAnimationFrame(tick);
+  }
+
+  raf = requestAnimationFrame(tick);
+  return () => { if (raf) cancelAnimationFrame(raf); };
 }
 
 /* ================================================

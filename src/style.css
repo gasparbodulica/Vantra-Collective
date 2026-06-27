@@ -599,114 +599,107 @@ nav.scrolled {
 
 .wwd-right { padding-top: 48px; }
 
-/* Pipeline — visual brand→creator→social→ads flow */
-/* ── Bridge illustration ── */
+/* ── Timeline illustration ── */
 .bridge-wrap {
   max-width: 1280px;
   margin: 80px auto 0;
   border-top: 1px solid var(--border);
   padding-top: 64px;
 }
+
 .bridge-svg {
   width: 100%;
-  max-width: 960px;
   display: block;
   margin: 0 auto;
   overflow: visible;
-  /* Fade both edges so bridge appears to extend beyond view */
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 13%, black 87%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, black 13%, black 87%, transparent 100%);
 }
+
 .bridge-caption {
   text-align: center;
   font-family: var(--sans);
   font-size: 0.875rem;
   color: var(--text-muted);
   font-style: italic;
-  margin-top: 24px;
+  margin-top: 20px;
   letter-spacing: 0.01em;
 }
 
-/* ── Walk-in: people slide from bridge entry points ── */
-.person-brand-outer {
-  transform: translateX(-258px);
-  transition: transform 2.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.person-creator-outer {
-  transform: translateX(258px);
-  transition: transform 2.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.bridge-wrap.walk-active .person-brand-outer  { transform: translateX(0); }
-.bridge-wrap.walk-active .person-creator-outer { transform: translateX(0); }
-
-/* ── Body animation while walking (bob + sway) ── */
-.bridge-wrap.walk-active .person-brand-inner {
-  animation: body-walk-R 0.48s ease-in-out infinite;
-}
-.bridge-wrap.walk-active .person-creator-inner {
-  animation: body-walk-L 0.48s ease-in-out infinite 0.24s;
+/* ── Milestone nodes: wave pulse ── */
+.tl-node { animation: tl-node-pulse 3.8s ease-in-out infinite; }
+.tl-node--1 { animation-delay: 0.0s; }
+.tl-node--2 { animation-delay: 0.6s; }
+.tl-node--3 { animation-delay: 1.2s; }
+.tl-node--4 { animation-delay: 1.5s; }
+.tl-node--5 { animation-delay: 0.9s; }
+.tl-node--6 { animation-delay: 0.3s; }
+@keyframes tl-node-pulse {
+  0%, 100% { transform: scale(1);   opacity: 0.12; }
+  50%       { transform: scale(2.4); opacity: 0.50; }
 }
 
-/* Walking right: bob up + slight sway left→right */
-@keyframes body-walk-R {
-  0%   { transform: translateY(0)   rotate(-1.2deg); }
-  50%  { transform: translateY(-4px) rotate(1.2deg); }
-  100% { transform: translateY(0)   rotate(-1.2deg); }
+/* ── Vantra rings: breathe ── */
+.tl-vring--3 { animation: tl-breathe-3 2.6s ease-in-out infinite; }
+.tl-vring--2 { animation: tl-breathe-2 2.6s ease-in-out infinite 0.45s; }
+.tl-vring--1 { animation: tl-breathe-1 2.6s ease-in-out infinite 0.90s; }
+@keyframes tl-breathe-3 {
+  0%, 100% { transform: scale(1);    opacity: 0.06; }
+  50%       { transform: scale(1.22); opacity: 0.14; }
 }
-/* Walking left: bob up + slight sway right→left */
-@keyframes body-walk-L {
-  0%   { transform: translateY(0)   rotate(1.2deg); }
-  50%  { transform: translateY(-4px) rotate(-1.2deg); }
-  100% { transform: translateY(0)   rotate(1.2deg); }
+@keyframes tl-breathe-2 {
+  0%, 100% { transform: scale(1);    opacity: 0.15; }
+  50%       { transform: scale(1.16); opacity: 0.30; }
 }
-
-/* ── Arm swing (upper body only — no legs) ── */
-/* Brand right arm (forward): pivot at shoulder (360, 168) — top-left of bbox */
-.bridge-wrap.walk-active .arm-brand-R {
-  transform-box: fill-box; transform-origin: 0% 0%;
-  animation: arm-swing 0.48s ease-in-out infinite alternate;
-}
-/* Brand left arm (back): pivot at shoulder (320, 168) — top-right of bbox */
-.bridge-wrap.walk-active .arm-brand-L {
-  transform-box: fill-box; transform-origin: 100% 0%;
-  animation: arm-swing 0.48s ease-in-out infinite alternate-reverse;
-}
-/* Creator left arm (forward toward centre): pivot at shoulder (740, 168) — top-right of bbox */
-.bridge-wrap.walk-active .arm-creator-L {
-  transform-box: fill-box; transform-origin: 100% 0%;
-  animation: arm-swing 0.48s ease-in-out infinite alternate;
-}
-/* Creator right arm (back): pivot at shoulder (780, 168) — top-left of bbox */
-.bridge-wrap.walk-active .arm-creator-R {
-  transform-box: fill-box; transform-origin: 0% 0%;
-  animation: arm-swing 0.48s ease-in-out infinite alternate-reverse;
+@keyframes tl-breathe-1 {
+  0%, 100% { transform: scale(1);    opacity: 0.40; }
+  50%       { transform: scale(1.10); opacity: 0.58; }
 }
 
-@keyframes arm-swing {
-  from { transform: rotate(-18deg); }
-  to   { transform: rotate(18deg); }
+/* ── Dot labels: fade out mid-journey so they don't collide at centre ── */
+.tl-dot-label { opacity: 1; }
+.walk-active .tl-dot-label {
+  animation: tl-label-fade 0.7s ease-out forwards;
+  animation-delay: 1.1s;
+}
+@keyframes tl-label-fade {
+  from { opacity: 1; }
+  to   { opacity: 0; }
 }
 
-/* ── Meeting glow ── */
-.bridge-glow--outer { opacity: 0.07; animation: glow-pulse 3s ease-in-out infinite; }
-.bridge-glow--inner { opacity: 0.18; animation: glow-pulse 3s ease-in-out infinite 0.5s; }
-@keyframes glow-pulse {
-  0%, 100% { opacity: 0.07; }
-  50%       { opacity: 0.20; }
+/* traveler transforms + trail clip driven by JS (SVG attr = SVG user units, no px ambiguity) */
+
+/* ── Arrival burst rings ── */
+.walk-active .tl-arrival      { animation: tl-burst 1s ease-out forwards 2.75s; }
+.walk-active .tl-arrival--b   { animation: tl-burst 1s ease-out forwards 3.10s; }
+@keyframes tl-burst {
+  0%   { transform: scale(1); opacity: 0.80; }
+  100% { transform: scale(9); opacity: 0;    }
+}
+
+/* ── Dots turn rust on arrival ── */
+.walk-active .tl-dot--brand,
+.walk-active .tl-dot--creator {
+  animation: tl-dot-arrive 0.4s ease-out forwards 2.7s;
+}
+@keyframes tl-dot-arrive {
+  0%   { fill: #141414; }
+  100% { fill: #C8390F; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .person-brand-outer, .person-creator-outer { transition: none; }
-  .person-brand-inner, .person-creator-inner,
-  .arm-brand-R, .arm-brand-L, .arm-creator-L, .arm-creator-R,
-  .bridge-glow--outer, .bridge-glow--inner { animation: none; }
+  .tl-node, .tl-vring--1, .tl-vring--2, .tl-vring--3 { animation: none; }
+  .tl-traveler--brand, .tl-traveler--creator { transition: none; }
+  .tl-trail--brand, .tl-trail--creator { transition: none; }
+  .tl-arrival { animation: none; }
 }
 
-@media (max-width: 600px) {
-  .bridge-wrap { margin-top: 56px; padding-top: 48px; }
-  .person-brand-outer  { transform: translateX(-180px); }
-  .person-creator-outer { transform: translateX(180px); }
+@media (max-width: 640px) {
+  .bridge-wrap { margin-top: 40px; padding-top: 40px; }
+  /* SVG viewBox is narrowed by JS on mobile; ensure it has breathing room */
+  .bridge-svg { min-height: 80px; }
+}
+
+@media (max-width: 768px) {
+  .wwd-right { padding-top: 0; }
 }
 
 /* ================================================
@@ -1144,9 +1137,8 @@ nav.scrolled {
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  align-items: start;
 }
 
 .pricing-card {
@@ -1181,6 +1173,23 @@ nav.scrolled {
 .pricing-card--enterprise {
   background: var(--bg);
   border: 1px dashed var(--border);
+}
+
+.pricing-card--retainer {
+  background: var(--bg);
+  border: 1px solid rgba(200, 57, 15, 0.25);
+}
+
+.pricing-card--retainer .pricing-plan { color: var(--accent); }
+.pricing-card--retainer .pricing-custom-label { color: var(--accent); }
+.pricing-card--retainer .pricing-cta {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.pricing-card--retainer .pricing-cta:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
 }
 
 .pricing-badge {
@@ -1289,6 +1298,7 @@ nav.scrolled {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  flex: 1;
 }
 
 .pricing-features li {
@@ -1345,11 +1355,14 @@ nav.scrolled {
 }
 
 @media (max-width: 1024px) {
-  .pricing-grid { grid-template-columns: 1fr; }
   .pricing-card--featured { transform: none; }
   .pricing-card--featured:hover { transform: translateY(-6px); }
   .pricing-header { flex-direction: column; align-items: flex-start; }
   .pricing-intro { text-align: left; max-width: 100%; }
+}
+
+@media (max-width: 640px) {
+  .pricing-grid { grid-template-columns: 1fr; }
 }
 
 .pricing-creator-link {
@@ -1953,6 +1966,381 @@ footer { background: var(--text); color: #fff; padding: 80px 48px 40px; }
 .footer-bottom-links a:hover { color: rgba(255,255,255,0.55); }
 
 /* ================================================
+   ACTIVE NAV LINK (sub-pages)
+   ================================================ */
+.nav-link-active {
+  color: var(--accent) !important;
+  opacity: 1 !important;
+}
+
+/* Orange "highlight" nav items (For Creators / For Brands) */
+.nav-highlight {
+  color: var(--accent) !important;
+  opacity: 1 !important;
+  font-weight: 600 !important;
+}
+
+/* Nav on dark-background sub-page heroes — white text until scrolled */
+.subpage-nav .nav-links a        { color: #F5F1EB; }
+.subpage-nav .nav-logo           { color: #F5F1EB; }
+.subpage-nav .nav-logo-dot       { color: var(--accent); }
+.subpage-nav .nav-hamburger span { background: #F5F1EB; }
+/* Accent links stay orange regardless */
+.subpage-nav .nav-link-active,
+.subpage-nav .nav-highlight      { color: var(--accent) !important; }
+/* Once scrolled the cream bar kicks in — restore dark text */
+.subpage-nav.scrolled .nav-links a        { color: var(--text); }
+.subpage-nav.scrolled .nav-logo           { color: var(--text); }
+.subpage-nav.scrolled .nav-hamburger span { background: var(--text); }
+/* Request Roster pill always dark-on-light */
+.subpage-nav .nav-cta {
+  background: #F5F1EB !important;
+  color: var(--text) !important;
+}
+.subpage-nav .nav-cta:hover     { background: var(--accent) !important; color: #fff !important; }
+.subpage-nav.scrolled .nav-cta  { background: var(--text) !important; color: var(--bg) !important; }
+
+/* ================================================
+   SUB-PAGE HERO
+   ================================================ */
+.subpage-hero {
+  background: var(--text);
+  padding: 160px 80px 100px;
+  overflow: hidden;
+}
+
+.subpage-hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.subpage-hero-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 28px;
+}
+
+.subpage-hero-label .eyebrow-dash {
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.subpage-hero-headline {
+  font-family: var(--display);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  color: #F5F1EB;
+  margin-bottom: 32px;
+  max-width: 800px;
+}
+
+.subpage-hero-sub {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: rgba(245, 241, 235, 0.55);
+  max-width: 560px;
+}
+
+/* ================================================
+   CREATOR / BRAND BENEFITS (shared)
+   ================================================ */
+#creator-roster,
+#brand-benefits {
+  padding: 100px 80px;
+}
+
+.cr-roster-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+}
+
+.cr-roster-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.cr-roster-intro p {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+.cr-free-note {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-top: 14px;
+}
+
+.cr-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: var(--border);
+}
+
+.cr-benefit {
+  background: var(--bg);
+  padding: 44px 40px;
+}
+
+.cr-benefit-num {
+  font-family: var(--sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+
+.cr-benefit-title {
+  font-family: var(--display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 14px;
+  line-height: 1.25;
+}
+
+.cr-benefit-text {
+  font-size: 0.9375rem;
+  line-height: 1.72;
+  color: var(--text-muted);
+}
+
+
+/* ================================================
+   CREATOR BLUEPRINT
+   ================================================ */
+#blueprint {
+  background: var(--text);
+  padding: 120px 80px;
+}
+
+.blueprint-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+}
+
+#blueprint .section-label {
+  color: var(--accent);
+}
+
+#blueprint .section-headline {
+  color: #F5F1EB;
+}
+
+.blueprint-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.blueprint-intro {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: rgba(245, 241, 235, 0.62);
+  margin-bottom: 24px;
+}
+
+.blueprint-for-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.blueprint-for-pill {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid rgba(200, 57, 15, 0.35);
+  border-radius: 40px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+}
+
+.blueprint-modules {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.blueprint-module {
+  padding: 40px 28px;
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+  transition: background 0.25s ease;
+}
+
+.blueprint-module:last-child {
+  border-right: none;
+}
+
+.blueprint-module:hover {
+  background: rgba(200, 57, 15, 0.07);
+}
+
+.blueprint-mod-num {
+  font-family: var(--sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.blueprint-mod-title {
+  font-family: var(--display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #F5F1EB;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.blueprint-mod-text {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: rgba(245, 241, 235, 0.45);
+}
+
+.blueprint-cta-block {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 48px;
+  padding: 48px 56px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.blueprint-cta-left {
+  flex: 1;
+}
+
+.blueprint-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.blueprint-currency {
+  font-family: var(--display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  align-self: flex-start;
+  margin-top: 8px;
+}
+
+.blueprint-price-num {
+  font-family: var(--display);
+  font-size: 4.5rem;
+  font-weight: 800;
+  color: #F5F1EB;
+  line-height: 1;
+}
+
+.blueprint-price-note {
+  font-size: 0.875rem;
+  color: rgba(245, 241, 235, 0.4);
+  margin-left: 8px;
+  align-self: center;
+}
+
+.blueprint-includes {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.8125rem;
+  color: rgba(245, 241, 235, 0.45);
+  flex-wrap: wrap;
+}
+
+.blueprint-sep {
+  color: var(--accent);
+  font-size: 0.55rem;
+}
+
+.blueprint-checklist {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 40px;
+  margin-top: 4px;
+}
+
+.blueprint-checklist li {
+  font-size: 0.875rem;
+  color: rgba(245, 241, 235, 0.55);
+  line-height: 1.5;
+  padding-left: 18px;
+  position: relative;
+}
+
+.blueprint-checklist li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  top: 1px;
+}
+
+.blueprint-cta-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.btn-blueprint {
+  display: inline-block;
+  padding: 18px 36px;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 2px;
+  transition: background 0.2s ease, transform 0.2s var(--spring);
+  white-space: nowrap;
+}
+
+.btn-blueprint:hover {
+  background: var(--accent-dark);
+}
+
+.blueprint-cta-note {
+  font-size: 0.8125rem;
+  color: rgba(245, 241, 235, 0.35);
+}
+
+/* ================================================
    RESPONSIVE — TABLET (≤ 1024px)
    ================================================ */
 @media (max-width: 1024px) {
@@ -1963,6 +2351,18 @@ footer { background: var(--text); color: #fff; padding: 80px 48px 40px; }
 
   #what-we-do, #approach, #services, #creators,
   #standard, #about, #contact { padding: 96px 32px; }
+  .subpage-hero { padding: 120px 32px 72px; }
+  #creator-roster, #brand-benefits { padding: 80px 32px; }
+  .cr-roster-header { grid-template-columns: 1fr; gap: 32px; }
+  .cr-benefits-grid { grid-template-columns: 1fr; }
+  #blueprint { padding: 96px 32px; }
+  .blueprint-header { grid-template-columns: 1fr; gap: 32px; }
+  .blueprint-modules { grid-template-columns: repeat(3, 1fr); }
+  .blueprint-module:nth-child(3) { border-right: none; }
+  .blueprint-module:nth-child(4),
+  .blueprint-module:nth-child(5) { border-top: 1px solid rgba(255,255,255,0.07); }
+  .blueprint-cta-block { flex-direction: column; align-items: flex-start; gap: 32px; padding: 40px 36px; }
+  .blueprint-cta-right { align-items: flex-start; }
 
   .wwd-inner { grid-template-columns: 1fr; gap: 64px; }
   .wwd-left { position: static; }
@@ -2006,6 +2406,19 @@ footer { background: var(--text); color: #fff; padding: 80px 48px 40px; }
 
   #what-we-do, #approach, #services, #creators,
   #standard, #about, #contact { padding: 80px 24px; }
+  .subpage-hero { padding: 100px 24px 60px; }
+  .subpage-hero-headline { font-size: clamp(2.5rem, 10vw, 4rem); }
+  #creator-roster, #brand-benefits { padding: 64px 24px; }
+  #blueprint { padding: 72px 24px; }
+  .blueprint-modules { grid-template-columns: 1fr; border: none; gap: 1px; }
+  .blueprint-module { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .blueprint-module:last-child { border-bottom: none; }
+  .blueprint-module:nth-child(3) { border-right: none; }
+  .blueprint-module:nth-child(4),
+  .blueprint-module:nth-child(5) { border-top: none; }
+  .blueprint-price-num { font-size: 3.5rem; }
+  .blueprint-cta-block { padding: 36px 28px; }
+  .blueprint-checklist { grid-template-columns: 1fr; gap: 10px; }
 
   footer { padding: 60px 24px 36px; }
 

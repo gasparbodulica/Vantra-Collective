@@ -26,6 +26,8 @@
         <li><a href="#creators">Creators</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="/creators.html" class="nav-highlight">For Creators</a></li>
+        <li><a href="/brands.html" class="nav-highlight">For Brands</a></li>
         <li><a href="#contact" class="nav-cta magnetic">Request Roster</a></li>
       </ul>
       <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -42,6 +44,8 @@
       <a href="#creators" class="mobile-nav-link">Creators</a>
       <a href="#pricing" class="mobile-nav-link">Pricing</a>
       <a href="#about" class="mobile-nav-link">About</a>
+      <a href="/creators.html" class="mobile-nav-link" style="color:var(--accent)">For Creators</a>
+      <a href="/brands.html" class="mobile-nav-link" style="color:var(--accent)">For Brands</a>
       <a href="#contact" class="mobile-nav-link">Contact</a>
     </div>
 
@@ -198,161 +202,96 @@
         </div>
       </div>
 
-      <!-- Bridge illustration -->
-      <div class="bridge-wrap fade-in" id="bridgeIllustration" aria-label="Brand and Creator walk toward each other across an old stone bridge and meet in the centre — Vantra is the bridge.">
-        <svg class="bridge-svg" viewBox="0 0 1100 330" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Timeline illustration -->
+      <div class="bridge-wrap fade-in" id="bridgeIllustration" aria-label="Brand and Creator travel toward Vantra at the centre — where they connect.">
+        <svg class="bridge-svg" viewBox="0 0 1100 240" fill="none" xmlns="http://www.w3.org/2000/svg">
 
-          <!-- ════════════════════════════════════════
-               OLD STONE ARCH BRIDGE (London-style)
-               People visible from waist up behind parapet
-               viewBox: 0 0 1100 330
-               Parapet top: y=196
-               Road deck: y=212–228
-               Arch body: y=228–322
-               Ground: y=322
-               3 arches, radius=90, abutments 200px, piers 80px
-               ════════════════════════════════════════ -->
+          <defs>
+            <!-- Glow for Vantra core -->
+            <filter id="tl-glow-lg" x="-150%" y="-150%" width="400%" height="400%">
+              <feGaussianBlur stdDeviation="8" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <!-- Brand trail gradient: transparent at x=90 → rust at x=550 -->
+            <linearGradient id="tl-brand-grad" x1="90" y1="0" x2="550" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0%"   stop-color="#C8390F" stop-opacity="0"/>
+              <stop offset="100%" stop-color="#C8390F" stop-opacity="0.75"/>
+            </linearGradient>
+            <!-- Creator trail gradient: transparent at x=1010 → rust at x=550 -->
+            <linearGradient id="tl-creator-grad" x1="1010" y1="0" x2="550" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0%"   stop-color="#C8390F" stop-opacity="0"/>
+              <stop offset="100%" stop-color="#C8390F" stop-opacity="0.75"/>
+            </linearGradient>
+            <!-- clipPath for brand trail — rect.width animated by JS in SVG user units -->
+            <clipPath id="tl-brand-clip">
+              <rect id="tl-brand-rect" x="90" y="112" width="0" height="16"/>
+            </clipPath>
+            <!-- clipPath for creator trail — rect.x and .width animated by JS -->
+            <clipPath id="tl-creator-clip">
+              <rect id="tl-creator-rect" x="1010" y="112" width="0" height="16"/>
+            </clipPath>
+            <!-- Subtle warm ambient at centre -->
+            <radialGradient id="tl-ambient" cx="550" cy="120" r="160" gradientUnits="userSpaceOnUse">
+              <stop offset="0%"   stop-color="#C8390F" stop-opacity="0.07"/>
+              <stop offset="100%" stop-color="#C8390F" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
 
-          <!-- Ground -->
-          <line x1="0" y1="322" x2="1100" y2="322" stroke="#E3DDD6" stroke-width="1.5"/>
-          <!-- Ground shadow below bridge -->
-          <ellipse cx="550" cy="323" rx="440" ry="7" fill="#141414" opacity="0.18"/>
+          <!-- Warm ember at centre (very subtle on cream) -->
+          <ellipse cx="550" cy="120" rx="200" ry="80" fill="url(#tl-ambient)"/>
 
-          <!-- ── Bridge body with 3 arch cutouts (even-odd rule) ── -->
-          <!-- Arch centers: x=290 (arch1), x=550 (arch2), x=810 (arch3), all at y=322, r=90 -->
-          <!-- Abutments: 0–200 and 900–1100 | Piers: 380–460, 640–720 -->
-          <path fill-rule="evenodd" fill="#141414" d="
-            M 0 228 L 1100 228 L 1100 323 L 0 323 Z
-            M 200 323 A 90 90 0 0 0 380 323 Z
-            M 460 323 A 90 90 0 0 0 640 323 Z
-            M 720 323 A 90 90 0 0 0 900 323 Z
-          "/>
+          <!-- ── Five-track rail ── -->
+          <line x1="0" y1="113" x2="1100" y2="113" stroke="#141414" stroke-width="0.5" opacity="0.05"/>
+          <line x1="0" y1="117" x2="1100" y2="117" stroke="#141414" stroke-width="0.8" opacity="0.09"/>
+          <line x1="0" y1="120" x2="1100" y2="120" stroke="#141414" stroke-width="1.5" opacity="0.18"/>
+          <line x1="0" y1="123" x2="1100" y2="123" stroke="#141414" stroke-width="0.8" opacity="0.09"/>
+          <line x1="0" y1="127" x2="1100" y2="127" stroke="#141414" stroke-width="0.5" opacity="0.05"/>
 
-          <!-- ── Arch voussoir rings (stone frame around each arch) ── -->
-          <path d="M 200 323 A 90 90 0 0 0 380 323" stroke="#252525" stroke-width="9" fill="none"/>
-          <path d="M 460 323 A 90 90 0 0 0 640 323" stroke="#252525" stroke-width="9" fill="none"/>
-          <path d="M 720 323 A 90 90 0 0 0 900 323" stroke="#252525" stroke-width="9" fill="none"/>
-          <!-- Inner ring highlight for depth -->
-          <path d="M 208 323 A 82 82 0 0 0 372 323" stroke="#1c1c1c" stroke-width="3" fill="none" opacity="0.7"/>
-          <path d="M 468 323 A 82 82 0 0 0 632 323" stroke="#1c1c1c" stroke-width="3" fill="none" opacity="0.7"/>
-          <path d="M 728 323 A 82 82 0 0 0 892 323" stroke="#1c1c1c" stroke-width="3" fill="none" opacity="0.7"/>
+          <!-- ── Milestone nodes ── -->
+          <circle cx="200" cy="120" r="3"   fill="#141414" opacity="0.20" class="tl-node tl-node--1" style="transform-box:fill-box;transform-origin:center"/>
+          <circle cx="340" cy="120" r="2.5" fill="#141414" opacity="0.16" class="tl-node tl-node--2" style="transform-box:fill-box;transform-origin:center"/>
+          <circle cx="455" cy="120" r="2"   fill="#141414" opacity="0.12" class="tl-node tl-node--3" style="transform-box:fill-box;transform-origin:center"/>
+          <circle cx="645" cy="120" r="2"   fill="#141414" opacity="0.12" class="tl-node tl-node--4" style="transform-box:fill-box;transform-origin:center"/>
+          <circle cx="760" cy="120" r="2.5" fill="#141414" opacity="0.16" class="tl-node tl-node--5" style="transform-box:fill-box;transform-origin:center"/>
+          <circle cx="900" cy="120" r="3"   fill="#141414" opacity="0.20" class="tl-node tl-node--6" style="transform-box:fill-box;transform-origin:center"/>
 
-          <!-- ── Stone coursing lines on abutments & piers ── -->
-          <line x1="2"   y1="255" x2="198" y2="255" stroke="#1c1c1c" stroke-width="1" opacity="0.5"/>
-          <line x1="2"   y1="280" x2="198" y2="280" stroke="#1c1c1c" stroke-width="1" opacity="0.5"/>
-          <line x1="2"   y1="305" x2="198" y2="305" stroke="#1c1c1c" stroke-width="1" opacity="0.5"/>
-          <line x1="382" y1="255" x2="458" y2="255" stroke="#1c1c1c" stroke-width="1" opacity="0.5"/>
-          <line x1="382" y1="280" x2="458" y2="280" stroke="#1c1c1c" stroke-width="1" opacity="0.5"/>
-          <line x1="382" y1="305" x2="458" y2="305" stroke="#1c1c1c" stroke-width="1" opacity="0.5"/>
-          <line x1="642" y1="255" x2="718" y2="255" stroke="#1c1c1c" stroke-width="1" opacity="0.5"/>
-          <line x1="642" y1="280" x2="718" y2="280" stroke="#1c1c1c" stroke-width="1" opacity="0.5"/>
-          <line x1="642" y1="305" x2="718" y2="305" stroke="#1c1c1c" stroke-width="1" opacity="0.5"/>
-          <line x1="902" y1="255" x2="1098" y2="255" stroke="#1c1c1c" stroke-width="1" opacity="0.5"/>
-          <line x1="902" y1="280" x2="1098" y2="280" stroke="#1c1c1c" stroke-width="1" opacity="0.5"/>
-          <line x1="902" y1="305" x2="1098" y2="305" stroke="#1c1c1c" stroke-width="1" opacity="0.5"/>
+          <!-- ── Trails (clipped by JS-animated rects — all coords in SVG user units) ── -->
+          <line x1="90"   y1="120" x2="550"  y2="120" stroke="url(#tl-brand-grad)"   stroke-width="3" clip-path="url(#tl-brand-clip)"/>
+          <line x1="1010" y1="120" x2="550"  y2="120" stroke="url(#tl-creator-grad)" stroke-width="3" clip-path="url(#tl-creator-clip)"/>
 
-          <!-- ── Spandrel detail (stonework above each arch, below road) ── -->
-          <line x1="200" y1="240" x2="380" y2="240" stroke="#1c1c1c" stroke-width="0.8" opacity="0.3"/>
-          <line x1="460" y1="240" x2="640" y2="240" stroke="#1c1c1c" stroke-width="0.8" opacity="0.3"/>
-          <line x1="720" y1="240" x2="900" y2="240" stroke="#1c1c1c" stroke-width="0.8" opacity="0.3"/>
+          <!-- ── VANTRA centre (x=550) ── -->
+          <circle cx="550" cy="120" r="36" fill="#C8390F" class="tl-vring tl-vring--3" style="transform-box:fill-box;transform-origin:center" opacity="0.06"/>
+          <circle cx="550" cy="120" r="22" fill="#C8390F" class="tl-vring tl-vring--2" style="transform-box:fill-box;transform-origin:center" opacity="0.15"/>
+          <circle cx="550" cy="120" r="12" fill="#C8390F" class="tl-vring tl-vring--1" style="transform-box:fill-box;transform-origin:center" opacity="0.40"/>
+          <circle cx="550" cy="120" r="6"  fill="#C8390F" filter="url(#tl-glow-lg)"/>
+          <circle cx="550" cy="120" r="6"  fill="none" stroke="#C8390F" stroke-width="1.5" class="tl-arrival"     style="transform-box:fill-box;transform-origin:center" opacity="0"/>
+          <circle cx="550" cy="120" r="6"  fill="none" stroke="#C8390F" stroke-width="1"   class="tl-arrival tl-arrival--b" style="transform-box:fill-box;transform-origin:center" opacity="0"/>
+          <text x="550" y="155" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" font-weight="700" letter-spacing="0.22em" fill="#C8390F" opacity="0.80">VANTRA COLLECTIVE</text>
+          <line x1="550" y1="134" x2="550" y2="143" stroke="#C8390F" stroke-width="0.8" opacity="0.35"/>
 
-          <!-- ── Road deck (bridge surface, above arches) ── -->
-          <rect x="0" y="212" width="1100" height="16" fill="#1c1c1c"/>
-          <!-- Road surface texture -->
-          <line x1="0" y1="220" x2="1100" y2="220" stroke="#fff" stroke-width="0.5" opacity="0.05"/>
-
-          <!-- ── Parapet wall (people walk BEHIND this) ── -->
-          <rect x="0" y="196" width="1100" height="16" fill="#141414"/>
-
-          <!-- ── Parapet coping — stone cap on top ── -->
-          <rect x="-2" y="192" width="1104" height="5" fill="#1f1f1f" rx="1"/>
-          <!-- Coping highlight (thin top edge) -->
-          <line x1="0" y1="192" x2="1100" y2="192" stroke="#2a2a2a" stroke-width="1"/>
-
-          <!-- ── Parapet panel indentations (decorative stone recesses) ── -->
-          <rect x="60"  y="198" width="80" height="8" rx="1" fill="#111" opacity="0.4"/>
-          <rect x="175" y="198" width="80" height="8" rx="1" fill="#111" opacity="0.4"/>
-          <rect x="290" y="198" width="80" height="8" rx="1" fill="#111" opacity="0.4"/>
-          <rect x="405" y="198" width="80" height="8" rx="1" fill="#111" opacity="0.4"/>
-          <rect x="520" y="198" width="60" height="8" rx="1" fill="#111" opacity="0.4"/>
-          <rect x="615" y="198" width="80" height="8" rx="1" fill="#111" opacity="0.4"/>
-          <rect x="730" y="198" width="80" height="8" rx="1" fill="#111" opacity="0.4"/>
-          <rect x="845" y="198" width="80" height="8" rx="1" fill="#111" opacity="0.4"/>
-          <rect x="960" y="198" width="80" height="8" rx="1" fill="#111" opacity="0.4"/>
-
-          <!-- ═══════════════════════════
-               PEOPLE — upper body only, visible above parapet (y < 196)
-               Both drawn BEFORE parapet so parapet covers their lower edge
-               Brand final x=340, Creator final x=760
-               ═══════════════════════════ -->
-
-          <!-- BRAND (faces right, walks from left) -->
-          <g class="person-brand-outer">
-            <g class="person-brand-inner">
-              <!-- Torso — trapezoid wider at shoulders -->
-              <path d="M 328 196 L 318 162 L 362 162 L 352 196 Z" fill="#141414"/>
-              <!-- Neck -->
-              <ellipse cx="340" cy="152" rx="9" ry="8" fill="#141414"/>
-              <!-- Head (slightly forward lean) -->
-              <ellipse cx="342" cy="128" rx="16" ry="18" fill="#141414"/>
-              <!-- Right arm — forward swing (shoulder at 360,168) -->
-              <g class="arm-brand-R">
-                <line x1="360" y1="168" x2="376" y2="183" stroke="#141414" stroke-width="13" stroke-linecap="round"/>
-                <line x1="376" y1="183" x2="368" y2="196" stroke="#141414" stroke-width="12" stroke-linecap="round"/>
-              </g>
-              <!-- Left arm — back swing (shoulder at 320,168) -->
-              <g class="arm-brand-L">
-                <line x1="320" y1="168" x2="306" y2="183" stroke="#141414" stroke-width="13" stroke-linecap="round"/>
-                <line x1="306" y1="183" x2="314" y2="196" stroke="#141414" stroke-width="12" stroke-linecap="round"/>
-              </g>
-            </g>
+          <!-- ── BRAND traveler — label below dot, travels with it, fades mid-journey ── -->
+          <g class="tl-traveler--brand">
+            <line x1="76"  y1="116" x2="58"  y2="116" stroke="#141414" stroke-width="0.7" opacity="0.15"/>
+            <line x1="74"  y1="120" x2="52"  y2="120" stroke="#141414" stroke-width="1.2" opacity="0.25"/>
+            <line x1="76"  y1="124" x2="58"  y2="124" stroke="#141414" stroke-width="0.7" opacity="0.15"/>
+            <circle cx="90" cy="120" r="10" fill="#141414" class="tl-dot tl-dot--brand"/>
+            <circle cx="90" cy="120" r="4"  fill="#C8390F"/>
+            <!-- label below dot -->
+            <line x1="90" y1="132" x2="90" y2="138" stroke="#7a7a7a" stroke-width="0.7" opacity="0.40" class="tl-dot-label"/>
+            <text x="90" y="148" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" font-weight="700" letter-spacing="0.22em" fill="#7a7a7a" class="tl-dot-label">BRAND</text>
           </g>
 
-          <!-- CREATOR (faces left, walks from right) -->
-          <g class="person-creator-outer">
-            <g class="person-creator-inner">
-              <!-- Torso — trapezoid (mirrored) -->
-              <path d="M 772 196 L 782 162 L 738 162 L 748 196 Z" fill="#141414"/>
-              <!-- Neck -->
-              <ellipse cx="760" cy="152" rx="9" ry="8" fill="#141414"/>
-              <!-- Head (slightly forward lean toward centre) -->
-              <ellipse cx="758" cy="128" rx="16" ry="18" fill="#141414"/>
-              <!-- Left arm — forward swing toward centre (shoulder at 740,168) -->
-              <g class="arm-creator-L">
-                <line x1="740" y1="168" x2="724" y2="183" stroke="#141414" stroke-width="13" stroke-linecap="round"/>
-                <line x1="724" y1="183" x2="732" y2="196" stroke="#141414" stroke-width="12" stroke-linecap="round"/>
-              </g>
-              <!-- Right arm — back swing (shoulder at 780,168) -->
-              <g class="arm-creator-R">
-                <line x1="780" y1="168" x2="794" y2="183" stroke="#141414" stroke-width="13" stroke-linecap="round"/>
-                <line x1="794" y1="183" x2="786" y2="196" stroke="#141414" stroke-width="12" stroke-linecap="round"/>
-              </g>
-            </g>
+          <!-- ── CREATOR traveler — label below dot, travels with it, fades mid-journey ── -->
+          <g class="tl-traveler--creator">
+            <line x1="1024" y1="116" x2="1042" y2="116" stroke="#141414" stroke-width="0.7" opacity="0.15"/>
+            <line x1="1026" y1="120" x2="1048" y2="120" stroke="#141414" stroke-width="1.2" opacity="0.25"/>
+            <line x1="1024" y1="124" x2="1042" y2="124" stroke="#141414" stroke-width="0.7" opacity="0.15"/>
+            <circle cx="1010" cy="120" r="10" fill="#141414" class="tl-dot tl-dot--creator"/>
+            <circle cx="1010" cy="120" r="4"  fill="#C8390F"/>
+            <!-- label below dot -->
+            <line x1="1010" y1="132" x2="1010" y2="138" stroke="#7a7a7a" stroke-width="0.7" opacity="0.40" class="tl-dot-label"/>
+            <text x="1010" y="148" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" font-weight="700" letter-spacing="0.22em" fill="#7a7a7a" class="tl-dot-label">CREATOR</text>
           </g>
-
-          <!-- Parapet drawn OVER people (covers their waist cutoff) -->
-          <rect x="0" y="196" width="1100" height="16" fill="#141414"/>
-          <rect x="-2" y="192" width="1104" height="5" fill="#1f1f1f" rx="1"/>
-          <line x1="0" y1="192" x2="1100" y2="192" stroke="#2a2a2a" stroke-width="1"/>
-          <rect x="60"  y="198" width="80" height="8" rx="1" fill="#111" opacity="0.4"/>
-          <rect x="175" y="198" width="80" height="8" rx="1" fill="#111" opacity="0.4"/>
-          <rect x="290" y="198" width="80" height="8" rx="1" fill="#111" opacity="0.4"/>
-          <rect x="405" y="198" width="80" height="8" rx="1" fill="#111" opacity="0.4"/>
-          <rect x="520" y="198" width="60" height="8" rx="1" fill="#111" opacity="0.4"/>
-          <rect x="615" y="198" width="80" height="8" rx="1" fill="#111" opacity="0.4"/>
-          <rect x="730" y="198" width="80" height="8" rx="1" fill="#111" opacity="0.4"/>
-          <rect x="845" y="198" width="80" height="8" rx="1" fill="#111" opacity="0.4"/>
-          <rect x="960" y="198" width="80" height="8" rx="1" fill="#111" opacity="0.4"/>
-
-          <!-- ── Meeting glow (above parapet, between figures) ── -->
-          <circle cx="550" cy="155" r="36" fill="#C8390F" class="bridge-glow--outer"/>
-          <circle cx="550" cy="155" r="17" fill="#C8390F" class="bridge-glow--inner"/>
-          <circle cx="550" cy="155" r="6" fill="#C8390F"/>
-
-          <!-- Labels -->
-          <text x="340" y="316" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" letter-spacing="0.18em" fill="#7a7a7a">BRAND</text>
-          <text x="760" y="316" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" letter-spacing="0.18em" fill="#7a7a7a">CREATOR</text>
-          <text x="550" y="316" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" letter-spacing="0.14em" fill="#C8390F">VANTRA</text>
 
         </svg>
         <p class="bridge-caption">Brands bring the brief. Creators bring the audience. We bring them together.</p>
@@ -607,6 +546,26 @@
             <a href="#contact" class="pricing-cta">Request a Quote →</a>
           </div>
 
+          <!-- RETAINER — ongoing partnership -->
+          <div class="pricing-card pricing-card--retainer fade-in">
+            <div class="pricing-plan">Retainer</div>
+            <div class="pricing-amount pricing-amount--custom">
+              <span class="pricing-custom-label">Per Request</span>
+            </div>
+            <p class="pricing-fee-note">Available after your first campaign</p>
+            <p class="pricing-desc">For brands who've seen results and want ongoing creator partnerships without starting from scratch each time.</p>
+            <ul class="pricing-features">
+              <li>Monthly creator campaigns</li>
+              <li>Ongoing creator relationship management</li>
+              <li>Priority roster access</li>
+              <li>Reduced rate vs. one-off campaigns</li>
+              <li>Dedicated account manager</li>
+              <li>Monthly performance review</li>
+              <li>Cancel any month — no commitment</li>
+            </ul>
+            <a href="#contact" class="pricing-cta">Let's Talk →</a>
+          </div>
+
         </div>
 
         <!-- Creator CTA -->
@@ -643,8 +602,8 @@
 
           <div class="standard-card fade-in">
             <div class="standard-num">01</div>
-            <div class="standard-title">48-Hour Response</div>
-            <p class="standard-text">Every brief, question, or revision gets a real reply within 48 hours. No chasing, no radio silence — we move at the speed you need.</p>
+            <div class="standard-title">24-Hour Response</div>
+            <p class="standard-text">Every brief, question, or revision gets a real reply within 24 hours. No chasing, no radio silence — we move at the speed you need.</p>
           </div>
 
           <div class="standard-card fade-in">
@@ -750,7 +709,7 @@
         <div class="contact-left">
           <div class="section-label pop-left">Get In Touch</div>
           <h2 class="section-headline fade-in">Brand or creator —<br>let's talk.</h2>
-          <p class="contact-sub fade-in">Whether you're a brand looking to run a campaign or a creator looking for brand deals, fill in the form and we'll get back to you within 48 hours.</p>
+          <p class="contact-sub fade-in">Whether you're a brand looking to run a campaign or a creator looking for brand deals, fill in the form and we'll get back to you within 24 hours.</p>
           <div class="contact-details fade-in">
             <div class="contact-detail">
               <a href="mailto:hello@vantracollective.com">hello@vantracollective.com</a>
@@ -806,14 +765,14 @@
               </label>
             </div>
             <div class="form-footer">
-              <span class="form-note">We reply within 48 hours.</span>
+              <span class="form-note">We reply within 24 hours.</span>
               <button type="submit" class="btn-primary magnetic">Send →</button>
             </div>
           </form>
           <div class="form-success" id="formSuccess" hidden>
             <div class="form-success-check">✓</div>
             <h3>Thanks — we'll be in touch.</h3>
-            <p>Your request has been received. Expect a reply from our team within 48 hours.</p>
+            <p>Your request has been received. Expect a reply from our team within 24 hours.</p>
           </div>
         </div>
       </div>
@@ -826,7 +785,7 @@
           <div class="footer-brand">
             <div class="footer-logo">Vantra<span style="color:var(--accent)">.</span></div>
             <p class="footer-tagline">A performance-driven creator agency. We connect brands with the creators shaping today's trends — not yesterday's.</p>
-            <p class="footer-entity">Vantra Collective d.o.o. &nbsp;·&nbsp; [City, Country]</p>
+            <p class="footer-entity">Vantra Collective</p>
           </div>
           <div class="footer-col">
             <div class="footer-col-title">Navigate</div>
@@ -836,6 +795,8 @@
               <li><a href="#services">Services</a></li>
               <li><a href="#creators">Creators</a></li>
               <li><a href="#pricing">Pricing</a></li>
+              <li><a href="/creators.html">For Creators</a></li>
+              <li><a href="/brands.html">For Brands</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
@@ -854,6 +815,9 @@
             <div class="footer-socials">
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link">
                 <span class="social-icon">IG</span>Instagram
+              </a>
+              <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-link">
+                <span class="social-icon">TK</span>TikTok
               </a>
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link">
                 <span class="social-icon">in</span>LinkedIn
