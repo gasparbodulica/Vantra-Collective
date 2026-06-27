@@ -199,63 +199,134 @@
       </div>
 
       <!-- Bridge illustration -->
-      <div class="bridge-wrap fade-in" aria-label="Illustration of a bridge: a Brand and a Creator walk toward each other from opposite sides and meet in the middle — Vantra Collective is the bridge.">
-        <svg class="bridge-svg" viewBox="0 0 900 310" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="bridge-wrap fade-in" id="bridgeIllustration" aria-label="Brand and Creator walk toward each other across a bridge and meet in the centre — Vantra is the bridge between them.">
+        <svg class="bridge-svg" viewBox="0 0 1100 360" fill="none" xmlns="http://www.w3.org/2000/svg">
 
-          <!-- Ground -->
-          <line x1="40" y1="282" x2="860" y2="282" stroke="#E3DDD6" stroke-width="1.5"/>
+          <!-- ── Ground & approaches ── -->
+          <line x1="0" y1="310" x2="1100" y2="310" stroke="#E3DDD6" stroke-width="1"/>
+          <line x1="0" y1="310" x2="82" y2="264" stroke="#141414" stroke-width="3.5"/>
+          <line x1="1100" y1="310" x2="1018" y2="264" stroke="#141414" stroke-width="3.5"/>
 
-          <!-- Base pillars -->
-          <rect x="55" y="257" width="10" height="25" fill="#141414" rx="1"/>
-          <rect x="835" y="257" width="10" height="25" fill="#141414" rx="1"/>
+          <!-- ── Road deck ── -->
+          <rect x="78" y="260" width="944" height="8" fill="#141414" rx="1"/>
 
-          <!-- Main arch (road surface) -->
-          <path d="M 60 258 Q 450 88 840 258" stroke="#141414" stroke-width="3"/>
+          <!-- ── Arch above road (arch rises ~100px above road) ── -->
+          <!-- Arch: M 80 264 Q 550 64 1020 264 -->
+          <path d="M 80 264 Q 550 64 1020 264" stroke="#1a1a1a" stroke-width="5"/>
+          <!-- Second arch rail (slight offset for thickness/depth) -->
+          <path d="M 80 264 Q 550 58 1020 264" stroke="#333" stroke-width="2" opacity="0.35"/>
 
+          <!-- ── Vertical hangers from arch to road ── -->
+          <!-- t=0.1 → (174,232) t=0.2 → (268,204) t=0.3 → (362,184) t=0.4 → (456,172) t=0.5 → (550,168) -->
+          <line x1="174" y1="232" x2="174" y2="264" stroke="#141414" stroke-width="1.5" opacity="0.55"/>
+          <line x1="268" y1="204" x2="268" y2="264" stroke="#141414" stroke-width="1.5" opacity="0.55"/>
+          <line x1="362" y1="184" x2="362" y2="264" stroke="#141414" stroke-width="1.5" opacity="0.55"/>
+          <line x1="456" y1="172" x2="456" y2="264" stroke="#141414" stroke-width="1.5" opacity="0.55"/>
+          <!-- Centre hanger — rust -->
+          <line x1="550" y1="168" x2="550" y2="264" stroke="#C8390F" stroke-width="2.5"/>
+          <line x1="644" y1="172" x2="644" y2="264" stroke="#141414" stroke-width="1.5" opacity="0.55"/>
+          <line x1="738" y1="184" x2="738" y2="264" stroke="#141414" stroke-width="1.5" opacity="0.55"/>
+          <line x1="832" y1="204" x2="832" y2="264" stroke="#141414" stroke-width="1.5" opacity="0.55"/>
+          <line x1="926" y1="232" x2="926" y2="264" stroke="#141414" stroke-width="1.5" opacity="0.55"/>
+
+          <!-- ── Railing above road ── -->
+          <line x1="80" y1="253" x2="1020" y2="253" stroke="#141414" stroke-width="1.5" opacity="0.4"/>
           <!-- Railing posts -->
-          <line x1="138" y1="224" x2="138" y2="204" stroke="#141414" stroke-width="1.5" opacity="0.5"/>
-          <line x1="216" y1="201" x2="216" y2="181" stroke="#141414" stroke-width="1.5" opacity="0.5"/>
-          <line x1="294" y1="184" x2="294" y2="164" stroke="#141414" stroke-width="1.5" opacity="0.5"/>
-          <line x1="372" y1="173" x2="372" y2="153" stroke="#141414" stroke-width="1.5" opacity="0.5"/>
-          <!-- Centre post — accent -->
-          <line x1="450" y1="170" x2="450" y2="150" stroke="#C8390F" stroke-width="2"/>
-          <line x1="528" y1="173" x2="528" y2="153" stroke="#141414" stroke-width="1.5" opacity="0.5"/>
-          <line x1="606" y1="184" x2="606" y2="164" stroke="#141414" stroke-width="1.5" opacity="0.5"/>
-          <line x1="684" y1="201" x2="684" y2="181" stroke="#141414" stroke-width="1.5" opacity="0.5"/>
-          <line x1="762" y1="224" x2="762" y2="204" stroke="#141414" stroke-width="1.5" opacity="0.5"/>
+          <line x1="174" y1="260" x2="174" y2="252" stroke="#141414" stroke-width="1.5" opacity="0.35"/>
+          <line x1="268" y1="260" x2="268" y2="252" stroke="#141414" stroke-width="1.5" opacity="0.35"/>
+          <line x1="362" y1="260" x2="362" y2="252" stroke="#141414" stroke-width="1.5" opacity="0.35"/>
+          <line x1="456" y1="260" x2="456" y2="252" stroke="#141414" stroke-width="1.5" opacity="0.35"/>
+          <line x1="644" y1="260" x2="644" y2="252" stroke="#141414" stroke-width="1.5" opacity="0.35"/>
+          <line x1="738" y1="260" x2="738" y2="252" stroke="#141414" stroke-width="1.5" opacity="0.35"/>
+          <line x1="832" y1="260" x2="832" y2="252" stroke="#141414" stroke-width="1.5" opacity="0.35"/>
+          <line x1="926" y1="260" x2="926" y2="252" stroke="#141414" stroke-width="1.5" opacity="0.35"/>
 
-          <!-- Top railing -->
-          <path d="M 60 238 Q 450 68 840 238" stroke="#141414" stroke-width="1.5" fill="none" opacity="0.3"/>
+          <!-- ── Road deck surface lines ── -->
+          <line x1="80" y1="264" x2="1020" y2="264" stroke="#fff" stroke-width="0.5" opacity="0.08"/>
 
-          <!-- Meeting point glow -->
-          <circle cx="450" cy="170" r="26" fill="#C8390F" class="bridge-glow bridge-glow--outer"/>
-          <circle cx="450" cy="170" r="12" fill="#C8390F" class="bridge-glow bridge-glow--inner"/>
-          <circle cx="450" cy="170" r="5" fill="#C8390F"/>
+          <!-- ── Ground shadows under people ── -->
+          <ellipse cx="370" cy="272" rx="24" ry="5" fill="#141414" opacity="0.12" class="shadow-brand"/>
+          <ellipse cx="730" cy="272" rx="24" ry="5" fill="#141414" opacity="0.12" class="shadow-creator"/>
 
-          <!-- BRAND person — facing right, feet at arch ~(305, 182) -->
-          <g class="person-brand">
-            <circle cx="305" cy="137" r="9" fill="#141414"/>
-            <line x1="305" y1="146" x2="305" y2="167" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="305" y1="153" x2="319" y2="161" stroke="#141414" stroke-width="2" stroke-linecap="round"/>
-            <line x1="305" y1="153" x2="292" y2="160" stroke="#141414" stroke-width="2" stroke-linecap="round"/>
-            <line x1="305" y1="167" x2="315" y2="182" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="305" y1="167" x2="296" y2="182" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- ── Meeting glow ── -->
+          <circle cx="550" cy="256" r="30" fill="#C8390F" class="bridge-glow--outer"/>
+          <circle cx="550" cy="256" r="14" fill="#C8390F" class="bridge-glow--inner"/>
+          <circle cx="550" cy="256" r="5" fill="#C8390F"/>
+
+          <!-- ══════════════════════════════════════════
+               BRAND PERSON — walks from left (x≈82) to resting position (centred at x=370)
+               Outer group moves horizontally; inner group bobs vertically; limbs swing
+               ══════════════════════════════════════════ -->
+          <g class="person-brand-outer">
+            <g class="person-brand-inner">
+              <!-- Head -->
+              <ellipse cx="370" cy="193" rx="14" ry="15" fill="#141414"/>
+              <!-- Neck -->
+              <line x1="370" y1="208" x2="370" y2="215" stroke="#141414" stroke-width="11" stroke-linecap="round"/>
+              <!-- Torso -->
+              <line x1="370" y1="215" x2="370" y2="244" stroke="#141414" stroke-width="14" stroke-linecap="round"/>
+              <!-- Left arm (behind, swings back) -->
+              <g class="arm-brand-L">
+                <line x1="363" y1="220" x2="350" y2="237" stroke="#141414" stroke-width="8" stroke-linecap="round"/>
+                <line x1="350" y1="237" x2="346" y2="252" stroke="#141414" stroke-width="7" stroke-linecap="round"/>
+              </g>
+              <!-- Right arm (forward, swings forward) -->
+              <g class="arm-brand-R">
+                <line x1="377" y1="220" x2="390" y2="237" stroke="#141414" stroke-width="8" stroke-linecap="round"/>
+                <line x1="390" y1="237" x2="386" y2="252" stroke="#141414" stroke-width="7" stroke-linecap="round"/>
+              </g>
+              <!-- Left leg (forward stride) -->
+              <g class="leg-brand-L">
+                <line x1="365" y1="244" x2="356" y2="258" stroke="#141414" stroke-width="9" stroke-linecap="round"/>
+                <line x1="356" y1="258" x2="348" y2="272" stroke="#141414" stroke-width="8" stroke-linecap="round"/>
+              </g>
+              <!-- Right leg (back push) -->
+              <g class="leg-brand-R">
+                <line x1="375" y1="244" x2="384" y2="258" stroke="#141414" stroke-width="9" stroke-linecap="round"/>
+                <line x1="384" y1="258" x2="392" y2="272" stroke="#141414" stroke-width="8" stroke-linecap="round"/>
+              </g>
+            </g>
           </g>
 
-          <!-- CREATOR person — facing left, feet at arch ~(595, 182) -->
-          <g class="person-creator">
-            <circle cx="595" cy="137" r="9" fill="#141414"/>
-            <line x1="595" y1="146" x2="595" y2="167" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="595" y1="153" x2="581" y2="161" stroke="#141414" stroke-width="2" stroke-linecap="round"/>
-            <line x1="595" y1="153" x2="608" y2="160" stroke="#141414" stroke-width="2" stroke-linecap="round"/>
-            <line x1="595" y1="167" x2="585" y2="182" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="595" y1="167" x2="604" y2="182" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- ══════════════════════════════════════════
+               CREATOR PERSON — walks from right (x≈1018) to resting position (centred at x=730)
+               Faces left (toward centre)
+               ══════════════════════════════════════════ -->
+          <g class="person-creator-outer">
+            <g class="person-creator-inner">
+              <!-- Head -->
+              <ellipse cx="730" cy="193" rx="14" ry="15" fill="#141414"/>
+              <!-- Neck -->
+              <line x1="730" y1="208" x2="730" y2="215" stroke="#141414" stroke-width="11" stroke-linecap="round"/>
+              <!-- Torso -->
+              <line x1="730" y1="215" x2="730" y2="244" stroke="#141414" stroke-width="14" stroke-linecap="round"/>
+              <!-- Left arm (forward toward centre) -->
+              <g class="arm-creator-L">
+                <line x1="737" y1="220" x2="750" y2="237" stroke="#141414" stroke-width="8" stroke-linecap="round"/>
+                <line x1="750" y1="237" x2="754" y2="252" stroke="#141414" stroke-width="7" stroke-linecap="round"/>
+              </g>
+              <!-- Right arm (forward = swings left, toward centre) -->
+              <g class="arm-creator-R">
+                <line x1="723" y1="220" x2="710" y2="237" stroke="#141414" stroke-width="8" stroke-linecap="round"/>
+                <line x1="710" y1="237" x2="714" y2="252" stroke="#141414" stroke-width="7" stroke-linecap="round"/>
+              </g>
+              <!-- Left leg (back) -->
+              <g class="leg-creator-L">
+                <line x1="735" y1="244" x2="744" y2="258" stroke="#141414" stroke-width="9" stroke-linecap="round"/>
+                <line x1="744" y1="258" x2="752" y2="272" stroke="#141414" stroke-width="8" stroke-linecap="round"/>
+              </g>
+              <!-- Right leg (forward, toward centre) -->
+              <g class="leg-creator-R">
+                <line x1="725" y1="244" x2="716" y2="258" stroke="#141414" stroke-width="9" stroke-linecap="round"/>
+                <line x1="716" y1="258" x2="708" y2="272" stroke="#141414" stroke-width="8" stroke-linecap="round"/>
+              </g>
+            </g>
           </g>
 
           <!-- Labels -->
-          <text x="305" y="303" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" letter-spacing="0.18em" fill="#7a7a7a">BRAND</text>
-          <text x="595" y="303" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" letter-spacing="0.18em" fill="#7a7a7a">CREATOR</text>
-          <text x="450" y="303" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" letter-spacing="0.14em" fill="#C8390F">VANTRA</text>
+          <text x="370" y="340" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" letter-spacing="0.18em" fill="#7a7a7a">BRAND</text>
+          <text x="730" y="340" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" letter-spacing="0.18em" fill="#7a7a7a">CREATOR</text>
+          <text x="550" y="340" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" letter-spacing="0.14em" fill="#C8390F">VANTRA</text>
 
         </svg>
         <p class="bridge-caption">Brands bring the brief. Creators bring the audience. We bring them together.</p>

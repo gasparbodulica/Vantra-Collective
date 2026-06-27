@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNav();
   initMobileNav();
   initScrollAnimations();
+  initBridgeWalk();
   initServiceAccordion();
   initCounters();
   initSmoothScroll();
@@ -243,6 +244,25 @@ function renderCreators() {
         <div class="creator-tags">${tags}</div>
       </div>`;
   }).join('');
+}
+
+/* ================================================
+   BRIDGE WALK — scroll-triggered walk animation
+   ================================================ */
+function initBridgeWalk() {
+  const bridge = document.getElementById('bridgeIllustration');
+  if (!bridge) return;
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        bridge.classList.add('walk-active');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.25 });
+
+  io.observe(bridge);
 }
 
 /* ================================================
