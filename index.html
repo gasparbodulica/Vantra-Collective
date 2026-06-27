@@ -198,31 +198,67 @@
         </div>
       </div>
 
-      <!-- Visual pipeline -->
-      <div class="wwd-pipeline">
-        <div class="pipeline-step fade-in">
-          <div class="pipeline-icon">01</div>
-          <div class="pipeline-label">Brand or Creator</div>
-          <p class="pipeline-desc">Brands bring a brief and a goal. Creators bring their audience and their content. Both sides come to us.</p>
-        </div>
-        <div class="pipeline-arrow fade-in" aria-hidden="true">→</div>
-        <div class="pipeline-step fade-in">
-          <div class="pipeline-icon">02</div>
-          <div class="pipeline-label">We Make the Match</div>
-          <p class="pipeline-desc">We pair brand to creator based on audience overlap, tone, and genuine fit — not just follower count.</p>
-        </div>
-        <div class="pipeline-arrow fade-in" aria-hidden="true">→</div>
-        <div class="pipeline-step fade-in">
-          <div class="pipeline-icon">03</div>
-          <div class="pipeline-label">Campaign Goes Live</div>
-          <p class="pipeline-desc">Sponsored content runs on TikTok, Instagram &amp; YouTube — native to the creator's feed, trusted by their audience.</p>
-        </div>
-        <div class="pipeline-arrow fade-in" aria-hidden="true">→</div>
-        <div class="pipeline-step fade-in">
-          <div class="pipeline-icon">04</div>
-          <div class="pipeline-label">Paid Ads Scale It</div>
-          <p class="pipeline-desc">We amplify the best-performing content with targeted paid ads to maximise reach and conversions.</p>
-        </div>
+      <!-- Bridge illustration -->
+      <div class="bridge-wrap fade-in" aria-label="Illustration of a bridge: a Brand and a Creator walk toward each other from opposite sides and meet in the middle — Vantra Collective is the bridge.">
+        <svg class="bridge-svg" viewBox="0 0 900 310" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+          <!-- Ground -->
+          <line x1="40" y1="282" x2="860" y2="282" stroke="#E3DDD6" stroke-width="1.5"/>
+
+          <!-- Base pillars -->
+          <rect x="55" y="257" width="10" height="25" fill="#141414" rx="1"/>
+          <rect x="835" y="257" width="10" height="25" fill="#141414" rx="1"/>
+
+          <!-- Main arch (road surface) -->
+          <path d="M 60 258 Q 450 88 840 258" stroke="#141414" stroke-width="3"/>
+
+          <!-- Railing posts -->
+          <line x1="138" y1="224" x2="138" y2="204" stroke="#141414" stroke-width="1.5" opacity="0.5"/>
+          <line x1="216" y1="201" x2="216" y2="181" stroke="#141414" stroke-width="1.5" opacity="0.5"/>
+          <line x1="294" y1="184" x2="294" y2="164" stroke="#141414" stroke-width="1.5" opacity="0.5"/>
+          <line x1="372" y1="173" x2="372" y2="153" stroke="#141414" stroke-width="1.5" opacity="0.5"/>
+          <!-- Centre post — accent -->
+          <line x1="450" y1="170" x2="450" y2="150" stroke="#C8390F" stroke-width="2"/>
+          <line x1="528" y1="173" x2="528" y2="153" stroke="#141414" stroke-width="1.5" opacity="0.5"/>
+          <line x1="606" y1="184" x2="606" y2="164" stroke="#141414" stroke-width="1.5" opacity="0.5"/>
+          <line x1="684" y1="201" x2="684" y2="181" stroke="#141414" stroke-width="1.5" opacity="0.5"/>
+          <line x1="762" y1="224" x2="762" y2="204" stroke="#141414" stroke-width="1.5" opacity="0.5"/>
+
+          <!-- Top railing -->
+          <path d="M 60 238 Q 450 68 840 238" stroke="#141414" stroke-width="1.5" fill="none" opacity="0.3"/>
+
+          <!-- Meeting point glow -->
+          <circle cx="450" cy="170" r="26" fill="#C8390F" class="bridge-glow bridge-glow--outer"/>
+          <circle cx="450" cy="170" r="12" fill="#C8390F" class="bridge-glow bridge-glow--inner"/>
+          <circle cx="450" cy="170" r="5" fill="#C8390F"/>
+
+          <!-- BRAND person — facing right, feet at arch ~(305, 182) -->
+          <g class="person-brand">
+            <circle cx="305" cy="137" r="9" fill="#141414"/>
+            <line x1="305" y1="146" x2="305" y2="167" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="305" y1="153" x2="319" y2="161" stroke="#141414" stroke-width="2" stroke-linecap="round"/>
+            <line x1="305" y1="153" x2="292" y2="160" stroke="#141414" stroke-width="2" stroke-linecap="round"/>
+            <line x1="305" y1="167" x2="315" y2="182" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="305" y1="167" x2="296" y2="182" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
+          </g>
+
+          <!-- CREATOR person — facing left, feet at arch ~(595, 182) -->
+          <g class="person-creator">
+            <circle cx="595" cy="137" r="9" fill="#141414"/>
+            <line x1="595" y1="146" x2="595" y2="167" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="595" y1="153" x2="581" y2="161" stroke="#141414" stroke-width="2" stroke-linecap="round"/>
+            <line x1="595" y1="153" x2="608" y2="160" stroke="#141414" stroke-width="2" stroke-linecap="round"/>
+            <line x1="595" y1="167" x2="585" y2="182" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="595" y1="167" x2="604" y2="182" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
+          </g>
+
+          <!-- Labels -->
+          <text x="305" y="303" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" letter-spacing="0.18em" fill="#7a7a7a">BRAND</text>
+          <text x="595" y="303" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" letter-spacing="0.18em" fill="#7a7a7a">CREATOR</text>
+          <text x="450" y="303" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" letter-spacing="0.14em" fill="#C8390F">VANTRA</text>
+
+        </svg>
+        <p class="bridge-caption">Brands bring the brief. Creators bring the audience. We bring them together.</p>
       </div>
     </section>
 
