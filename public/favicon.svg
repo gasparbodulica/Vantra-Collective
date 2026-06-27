@@ -1,4 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-  <rect width="48" height="48" rx="10" fill="#C8390F"/>
-  <text x="24" y="34" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#F5F1EB" text-anchor="middle">V</text>
+  <rect width="48" height="48" rx="6" fill="#F5F1EB"/>
+  <!-- V shape -->
+  <polygon points="4,8 14,8 24,34 34,8 44,8 24,42" fill="#0D0D0D"/>
+  <!-- Orange dot -->
+  <rect x="29" y="36" width="9" height="6" rx="1.5" fill="#C8390F"/>
 </svg>
