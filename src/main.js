@@ -2,11 +2,13 @@ import './style.css';
 import { initHeroScene } from './three-scene.js';
 import { TRENDING_CREATORS, LAST_UPDATED } from './creators-data.js';
 import { inject } from '@vercel/analytics';
+import { injectSpeedInsights } from '@vercel/speed-insights';
 
 /* ================================================
    BOOT — run after DOM ready
    ================================================ */
 inject();
+injectSpeedInsights();
 
 document.addEventListener('DOMContentLoaded', () => {
   renderCreators();      // must run before scroll animations observe
