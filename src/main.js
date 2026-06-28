@@ -404,11 +404,19 @@ if (contactForm) {
     btn.textContent = 'Sending…';
     btn.disabled = true;
 
-    // Swap in a real fetch() to your backend/Formspree endpoint here
-    await new Promise(r => setTimeout(r, 1000));
+    const res = await fetch('https://formspree.io/f/mnjkvgnd', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(contactForm),
+    });
 
-    contactForm.hidden = true;
-    formSuccess.removeAttribute('hidden');
+    if (res.ok) {
+      contactForm.hidden = true;
+      formSuccess.removeAttribute('hidden');
+    } else {
+      alert('Something went wrong. Please email us directly at contact@vantracollective.com');
+    }
+
     btn.textContent = orig;
     btn.disabled = false;
   });
