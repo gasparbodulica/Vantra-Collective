@@ -1,5 +1,4 @@
 import './style.css';
-import { initHeroScene } from './three-scene.js';
 import { TRENDING_CREATORS, LAST_UPDATED } from './creators-data.js';
 import { inject } from '@vercel/analytics';
 import { injectSpeedInsights } from '@vercel/speed-insights';
@@ -12,7 +11,18 @@ injectSpeedInsights();
 
 document.addEventListener('DOMContentLoaded', () => {
   renderCreators();      // must run before scroll animations observe
-  initHeroScene('hero-canvas');
+
+  // Lazy-load Three.js after initial paint — Safari fallback via setTimeout
+  if (document.getElementById('hero-canvas')) {
+    const loadThree = () => {
+      import('./three-scene.js').then(({ initHeroScene }) => initHeroScene('hero-canvas'));
+    };
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadThree, { timeout: 2000 });
+    } else {
+      setTimeout(loadThree, 200);
+    }
+  }
   initNav();
   initMobileNav();
   initScrollAnimations();
