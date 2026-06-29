@@ -1,5 +1,4 @@
 import './style.css';
-import { initHeroScene } from './three-scene.js';
 import { TRENDING_CREATORS, LAST_UPDATED } from './creators-data.js';
 import { inject } from '@vercel/analytics';
 import { injectSpeedInsights } from '@vercel/speed-insights';
@@ -12,7 +11,13 @@ injectSpeedInsights();
 
 document.addEventListener('DOMContentLoaded', () => {
   renderCreators();      // must run before scroll animations observe
-  initHeroScene('hero-canvas');
+
+  // Lazy-load Three.js after page has painted so it doesn't block LCP
+  if (document.getElementById('hero-canvas')) {
+    requestIdleCallback(() => {
+      import('./three-scene.js').then(({ initHeroScene }) => initHeroScene('hero-canvas'));
+    }, { timeout: 2000 });
+  }
   initNav();
   initMobileNav();
   initScrollAnimations();
