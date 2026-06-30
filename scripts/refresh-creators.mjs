@@ -24,14 +24,15 @@ const OUTPUT_PATH = join(ROOT, 'src', 'creators-data.js');
 
 const YT_KEY = process.env.YOUTUBE_API_KEY;
 
-// Major creators should have at least this many followers
-const MIN_FOLLOWER_THRESHOLD = 50_000;
+// Vantra showcases micro/mid-tier creators only — keep within this range
+const MIN_FOLLOWER_THRESHOLD = 10_000;
+const MAX_FOLLOWER_THRESHOLD = 500_000;
 
 // ── Helpers ─────────────────────────────────────────────────────────────────
 
 function fmt(n) {
   const num = parseInt(n, 10);
-  if (isNaN(num) || num < MIN_FOLLOWER_THRESHOLD) return null; // reject garbage
+  if (isNaN(num) || num < MIN_FOLLOWER_THRESHOLD || num > MAX_FOLLOWER_THRESHOLD) return null; // out of micro/mid-tier range
   if (num >= 1_000_000) {
     const val = (num / 1_000_000).toFixed(1);
     return (val.endsWith('.0') ? val.slice(0, -2) : val) + 'M';

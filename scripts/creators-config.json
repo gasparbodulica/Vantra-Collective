@@ -1,63 +1,58 @@
 [
   {
     "featured": true,
-    "handle": "@alix.earle",
-    "name": "Alix Earle",
+    "handle": "@juno.makes",
+    "name": "Juno Reyes",
     "category": "Lifestyle & Beauty",
     "platform": "TT",
-    "tiktokUsername": "alix.earle",
-    "tags": ["GRWM", "College Life", "Hauls"],
+    "tags": ["GRWM", "Skincare", "Day in My Life"],
     "verified": true,
     "accent": "#E07B91",
-    "followers": "7.9M",
-    "engagement": "15.4%"
+    "followers": "284K",
+    "engagement": "9.8%"
   },
   {
-    "handle": "@noel.deyzel",
-    "name": "Noel Deyzel",
+    "handle": "@theo.lifts",
+    "name": "Theo Bracken",
     "category": "Fitness & Physique",
     "platform": "TT",
-    "tiktokUsername": "noel.deyzel",
-    "tags": ["Bodybuilding", "Training", "Mindset"],
+    "tags": ["Strength Training", "Mindset", "Progress"],
     "verified": true,
     "accent": "#5BA3FF",
-    "followers": "2.5M",
-    "engagement": "11.2%"
+    "followers": "162K",
+    "engagement": "12.1%"
   },
   {
-    "handle": "@mkbhd",
-    "name": "Marques Brownlee",
+    "handle": "@mira.codes",
+    "name": "Mira Solberg",
     "category": "Tech & Reviews",
     "platform": "YT",
-    "youtubeChannelId": "UCBJycsmduvYEL83R_U4JriQ",
-    "tags": ["Gadgets", "AI", "Reviews"],
+    "tags": ["Gadgets", "Productivity", "Honest Reviews"],
     "verified": true,
     "accent": "#9B72FF",
-    "followers": "19.2M",
-    "engagement": "4.8%"
+    "followers": "97K",
+    "engagement": "7.4%"
   },
   {
-    "handle": "@nick.digiovanni",
-    "name": "Nick DiGiovanni",
+    "handle": "@finntheflavor",
+    "name": "Finn Okafor",
     "category": "Food & Culinary",
     "platform": "TT",
-    "tiktokUsername": "nick.digiovanni",
-    "tags": ["Cooking", "Records", "Premium"],
+    "tags": ["Home Cooking", "Budget Meals", "Quick Recipes"],
     "verified": true,
     "accent": "#F0A535",
-    "followers": "15.6M",
-    "engagement": "9.3%"
+    "followers": "356K",
+    "engagement": "10.6%"
   },
   {
-    "handle": "@wisdom.kaye",
-    "name": "Wisdom Kaye",
+    "handle": "@stylebysana",
+    "name": "Sana Verhoeven",
     "category": "Fashion & Style",
     "platform": "TT",
-    "tiktokUsername": "wisdom.kaye",
-    "tags": ["Menswear", "Editorial", "OOTDs"],
+    "tags": ["Thrifted", "Capsule Wardrobe", "OOTDs"],
     "verified": true,
     "accent": "#C8390F",
-    "followers": "5.3M",
-    "engagement": "8.1%"
+    "followers": "211K",
+    "engagement": "8.9%"
   }
 ]
