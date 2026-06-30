@@ -108,13 +108,14 @@ ul { list-style: none; }
 .delay-5 { transition-delay: 0.40s !important; }
 
 /* Hero word-by-word reveal */
-.reveal-word {
+.js .reveal-word {
   display: inline-block;
   opacity: 0;
   transform: translateY(56px) scale(0.94);
   transition: opacity 0.8s var(--ease-out),
               transform 0.8s var(--spring);
 }
+.reveal-word { display: inline-block; }
 .reveal-word.visible       { opacity: 1; transform: translateY(0) scale(1); }
 .reveal-word:nth-child(1)  { transition-delay: 0.04s; }
 .reveal-word:nth-child(2)  { transition-delay: 0.13s; }
@@ -122,7 +123,7 @@ ul { list-style: none; }
 .reveal-word:nth-child(4)  { transition-delay: 0.31s; }
 
 /* Section eyebrow line — slides from left */
-.reveal-line {
+.js .reveal-line {
   opacity: 0;
   transform: translateX(-20px);
   transition: opacity 0.6s var(--ease-out), transform 0.6s var(--spring);
@@ -130,7 +131,7 @@ ul { list-style: none; }
 .reveal-line.visible { opacity: 1; transform: translateX(0); }
 
 /* Simple fade — for subtitles/descriptions that follow a pop element */
-.reveal-fade {
+.js .reveal-fade {
   opacity: 0;
   transition: opacity 0.75s ease;
 }
