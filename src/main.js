@@ -66,8 +66,9 @@ function initMobileNav() {
    SCROLL ANIMATIONS — Intersection Observer
    ================================================ */
 function initScrollAnimations() {
-  // Hero elements fire immediately on load
-  const heroEls = document.querySelectorAll('.reveal-word, .reveal-line, .reveal-fade');
+  // .reveal-word animates via CSS keyframes — no JS needed
+  // .reveal-line and .reveal-fade still need JS visible class
+  const heroEls = document.querySelectorAll('.reveal-line, .reveal-fade');
   requestAnimationFrame(() => {
     heroEls.forEach((el, i) => {
       setTimeout(() => el.classList.add('visible'), i * 30);
