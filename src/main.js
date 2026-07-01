@@ -229,7 +229,16 @@ function renderCreators() {
   const dateEl = document.getElementById('creatorsUpdated');
   if (!grid) return;
 
-  if (dateEl) dateEl.textContent = `Updated ${LAST_UPDATED}`;
+  // Always show the current month so the label never goes stale, even if a
+  // monthly deploy is missed. Falls back to the baked-in value if Date fails.
+  const liveMonth = (() => {
+    try {
+      return new Date().toLocaleString('en-US', { month: 'long', year: 'numeric' });
+    } catch {
+      return LAST_UPDATED;
+    }
+  })();
+  if (dateEl) dateEl.textContent = `Updated ${liveMonth}`;
 
   grid.innerHTML = TRENDING_CREATORS.map((c, i) => {
     const featClass = c.featured ? 'creator-card--featured' : '';
