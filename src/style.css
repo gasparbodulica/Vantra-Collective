@@ -2683,6 +2683,8 @@ footer { background: var(--text); color: #fff; padding: 80px 48px 40px; }
   object-fit: cover;
   display: block;
 }
+/* Square source photos: show the full frame instead of cropping the sides off */
+.cr-spotlight-img--square { aspect-ratio: 1 / 1; }
 /* Placeholder look until the real photo is dropped in */
 .cr-spotlight-photo {
   display: flex;
