@@ -241,7 +241,15 @@ nav.scrolled {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 22px;
+  white-space: nowrap;
+}
+
+/* The header mirrors every landing section (7 links + 3 CTAs), so it needs more
+   room than before — drop to the hamburger while there's still space for it. */
+@media (max-width: 1180px) {
+  .nav-links     { display: none; }
+  .nav-hamburger { display: flex; }
 }
 
 .nav-links a {
@@ -2638,4 +2646,171 @@ footer { background: var(--text); color: #fff; padding: 80px 48px 40px; }
     transition: opacity 0.3s ease !important;
     transform: none !important;
   }
+}
+/* Landing roster section — "join the roster" link */
+.creators-roster-link {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--accent);
+  transition: color 0.25s ease;
+}
+.creators-roster-link:hover { color: var(--accent-dark); }
+
+/* ================================================
+   FEATURED ROSTER CREATOR (creators page)
+   ================================================ */
+.cr-spotlight {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 44px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 32px;
+  margin: 8px 0 64px;
+  box-shadow: 0 1px 2px rgba(20, 20, 20, 0.04);
+}
+
+.cr-spotlight-media { position: relative; }
+.cr-spotlight-img,
+.cr-spotlight-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 16px;
+  object-fit: cover;
+  display: block;
+}
+/* Placeholder look until the real photo is dropped in */
+.cr-spotlight-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--display);
+  font-size: 4rem;
+  font-weight: 700;
+  color: rgba(245, 241, 235, 0.9);
+  background: linear-gradient(150deg, var(--accent) 0%, var(--accent-dark) 100%);
+  letter-spacing: 0.05em;
+}
+.cr-spotlight-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-family: var(--sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(13, 13, 13, 0.72);
+  backdrop-filter: blur(6px);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.cr-spotlight-eyebrow {
+  font-family: var(--sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.cr-spotlight-name {
+  font-family: var(--display);
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--text);
+}
+.cr-spotlight-handle {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 8px 0 16px;
+}
+.cr-spotlight-platforms { color: var(--text-muted); font-weight: 500; }
+.cr-spotlight-niche {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent-dark);
+  margin-bottom: 12px;
+}
+.cr-spotlight-bio {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: #444;
+  max-width: 560px;
+}
+.cr-spotlight-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 32px;
+  margin: 22px 0 24px;
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.cr-stat { display: flex; flex-direction: column; }
+.cr-stat-num {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+  line-height: 1;
+}
+.cr-stat-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.cr-spotlight-brands { margin: 22px 0; }
+.cr-spotlight-brands-label {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+.cr-spotlight-brand-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.cr-spotlight-brand-tags span {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 7px 14px;
+  border-radius: 999px;
+}
+.cr-spotlight-link {
+  display: inline-block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--accent);
+  transition: color 0.25s ease;
+}
+.cr-spotlight-link:hover { color: var(--accent-dark); }
+
+@media (max-width: 768px) {
+  .cr-spotlight {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 24px;
+    margin-bottom: 48px;
+  }
+  .cr-spotlight-img,
+  .cr-spotlight-photo { aspect-ratio: 3 / 2; }
+  .cr-spotlight-name { font-size: 1.875rem; }
 }

@@ -27,6 +27,8 @@
     <nav id="navbar">
       <a href="#hero" class="nav-logo">Vantra<span class="nav-logo-dot">.</span></a>
       <ul class="nav-links">
+        <li><a href="#standard">Why Vantra</a></li>
+        <li><a href="#approach">How It Works</a></li>
         <li><a href="#what-we-do">What We Do</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#creators">Creators</a></li>
@@ -44,8 +46,9 @@
     <!-- MOBILE NAV OVERLAY -->
     <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true">
       <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">✕</button>
+      <a href="#standard" class="mobile-nav-link">Why Vantra</a>
+      <a href="#approach" class="mobile-nav-link">How It Works</a>
       <a href="#what-we-do" class="mobile-nav-link">What We Do</a>
-      <a href="#approach" class="mobile-nav-link">Our Approach</a>
       <a href="#services" class="mobile-nav-link">Services</a>
       <a href="#creators" class="mobile-nav-link">Creators</a>
       <a href="#pricing" class="mobile-nav-link">Pricing</a>
@@ -520,24 +523,51 @@
 
     <div class="divider"></div>
 
-    <!-- ========= CREATOR SHOWCASE ========= -->
+    <!-- ========= OUR ROSTER ========= -->
     <section id="creators">
       <div class="creators-inner">
         <div class="creators-header">
           <div>
-            <div class="section-label">Creator Showcase</div>
-            <h2 class="section-headline">This Month's<br>Trending Creators.</h2>
+            <div class="section-label">Our Roster</div>
+            <h2 class="section-headline">The creators<br>on our roster.</h2>
           </div>
           <div class="creators-header-right">
             <p class="creators-note">
-              We specialise in micro and mid-tier creators — 10K to 500K followers. Higher engagement, more loyal audiences, better ROI. Our featured roster is refreshed each month as new voices break through.
+              We specialise in micro and mid-tier creators — 10K to 500K followers. Higher engagement, more loyal audiences, better ROI. Every creator on our roster is someone we'd genuinely put our name behind.
             </p>
-            <p class="creators-updated" id="creatorsUpdated"></p>
+            <a href="/creators.html" class="creators-roster-link">For creators — join the roster →</a>
           </div>
         </div>
 
-        <!-- Rendered by main.js from src/creators-data.js -->
-        <div class="creators-grid" id="creatorsGrid"></div>
+        <!-- Featured roster creator -->
+        <div class="cr-spotlight fade-in">
+          <div class="cr-spotlight-media">
+            <img src="/gina-labarbera.jpg" alt="Gina LaBarbera" class="cr-spotlight-img" width="300" height="375" />
+            <span class="cr-spotlight-badge">On the Roster</span>
+          </div>
+          <div class="cr-spotlight-body">
+            <div class="cr-spotlight-eyebrow">Featured Creator</div>
+            <h3 class="cr-spotlight-name">Gina LaBarbera</h3>
+            <p class="cr-spotlight-handle">@curlygirl_gina <span class="cr-spotlight-platforms">· Instagram · TikTok</span></p>
+            <p class="cr-spotlight-niche">Beauty · Skincare · Wellness — trusted by a loyal Gen X audience.</p>
+            <p class="cr-spotlight-bio">A beauty and wellness creator known for her honest, “let's read the label” explainer style. Her audience comes to her for real recommendations they can trust — which is exactly why brands do too.</p>
+
+            <div class="cr-spotlight-stats">
+              <div class="cr-stat"><span class="cr-stat-num">33K</span><span class="cr-stat-label">TikTok</span></div>
+              <div class="cr-stat"><span class="cr-stat-num">1.5K</span><span class="cr-stat-label">Instagram</span></div>
+              <div class="cr-stat"><span class="cr-stat-num">9.5%</span><span class="cr-stat-label">Engagement</span></div>
+              <div class="cr-stat"><span class="cr-stat-num">400%</span><span class="cr-stat-label">Avg. ROAS</span></div>
+              <div class="cr-stat"><span class="cr-stat-num">3.1M</span><span class="cr-stat-label">Total Reach</span></div>
+            </div>
+
+            <div class="cr-spotlight-brands">
+              <span class="cr-spotlight-brands-label">Worked with</span>
+              <div class="cr-spotlight-brand-tags">
+                <span>Ritual</span><span>Naturium</span><span>Skintegra</span><span>Olay</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
     </section>
