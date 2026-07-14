@@ -2794,6 +2794,14 @@ footer { background: var(--text); color: #fff; padding: 80px 48px 40px; }
   padding: 7px 14px;
   border-radius: 999px;
 }
+/* Summary pill — reads as "and more", not as a brand name */
+.cr-spotlight-brand-tags span.is-more {
+  color: var(--accent-dark);
+  background: transparent;
+  border-style: dashed;
+  border-color: var(--accent);
+  font-weight: 500;
+}
 .cr-spotlight-link {
   display: inline-block;
   font-size: 0.9375rem;
