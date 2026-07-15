@@ -245,9 +245,9 @@ nav.scrolled {
   white-space: nowrap;
 }
 
-/* The header mirrors every landing section (7 links + 3 CTAs), so it needs more
-   room than before — drop to the hamburger while there's still space for it. */
-@media (max-width: 1180px) {
+/* Trimmed header (5 links + 3 CTAs) fits comfortably; drop to the hamburger
+   only once it actually runs out of room. */
+@media (max-width: 1080px) {
   .nav-links     { display: none; }
   .nav-hamburger { display: flex; }
 }
@@ -2661,30 +2661,41 @@ footer { background: var(--text); color: #fff; padding: 80px 48px 40px; }
 /* ================================================
    FEATURED ROSTER CREATOR (creators page)
    ================================================ */
-.cr-spotlight {
+/* Roster grid — cards tile 2-across (then wrap) so more creators fit */
+.roster-grid {
   display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 44px;
-  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.cr-spotlight {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   background: #fff;
   border: 1px solid var(--border);
-  border-radius: 22px;
-  padding: 32px;
-  margin: 8px 0 64px;
+  border-radius: 20px;
+  padding: 22px;
   box-shadow: 0 1px 2px rgba(20, 20, 20, 0.04);
 }
 
-.cr-spotlight-media { position: relative; }
-.cr-spotlight-img,
+.cr-spotlight-media { position: relative; width: 150px; }
+/* Small, equal square photo — same size for every creator */
+.cr-spotlight-img {
+  width: 150px;
+  height: 150px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+}
 .cr-spotlight-photo {
   width: 100%;
   aspect-ratio: 4 / 5;
-  border-radius: 16px;
+  border-radius: 14px;
   object-fit: cover;
   display: block;
 }
-/* Square source photos: show the full frame instead of cropping the sides off */
-.cr-spotlight-img--square { aspect-ratio: 1 / 1; }
 /* Placeholder look until the real photo is dropped in */
 .cr-spotlight-photo {
   display: flex;
@@ -2724,7 +2735,7 @@ footer { background: var(--text); color: #fff; padding: 80px 48px 40px; }
 }
 .cr-spotlight-name {
   font-family: var(--display);
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.05;
@@ -2738,30 +2749,30 @@ footer { background: var(--text); color: #fff; padding: 80px 48px 40px; }
 }
 .cr-spotlight-platforms { color: var(--text-muted); font-weight: 500; }
 .cr-spotlight-niche {
-  font-size: 1rem;
+  font-size: 0.9375rem;
   font-weight: 600;
   color: var(--accent-dark);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 .cr-spotlight-bio {
-  font-size: 0.9375rem;
-  line-height: 1.65;
+  font-size: 0.875rem;
+  line-height: 1.6;
   color: #444;
   max-width: 560px;
 }
 .cr-spotlight-stats {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px 32px;
-  margin: 22px 0 24px;
-  padding: 20px 0;
+  gap: 12px 28px;
+  margin: 18px 0 20px;
+  padding: 16px 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
 .cr-stat { display: flex; flex-direction: column; }
 .cr-stat-num {
   font-family: var(--display);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--accent);
@@ -2813,14 +2824,7 @@ footer { background: var(--text); color: #fff; padding: 80px 48px 40px; }
 }
 .cr-spotlight-link:hover { color: var(--accent-dark); }
 
-@media (max-width: 768px) {
-  .cr-spotlight {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    padding: 24px;
-    margin-bottom: 48px;
-  }
-  .cr-spotlight-img,
-  .cr-spotlight-photo { aspect-ratio: 3 / 2; }
-  .cr-spotlight-name { font-size: 1.875rem; }
+/* Roster: one column once two cards no longer fit side by side */
+@media (max-width: 860px) {
+  .roster-grid { grid-template-columns: 1fr; }
 }
