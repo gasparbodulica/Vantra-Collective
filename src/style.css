@@ -2669,6 +2669,7 @@ footer { background: var(--text); color: #fff; padding: 80px 48px 40px; }
 }
 
 .cr-spotlight {
+  position: relative;          /* anchors the "On the Roster" badge */
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -2679,7 +2680,17 @@ footer { background: var(--text); color: #fff; padding: 80px 48px 40px; }
   box-shadow: 0 1px 2px rgba(20, 20, 20, 0.04);
 }
 
-.cr-spotlight-media { position: relative; width: 150px; }
+/* Photo sits beside the name/niche so the top row isn't half empty */
+.cr-spotlight-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+/* Right padding keeps the name/niche clear of the corner badge */
+.cr-spotlight-head-text { min-width: 0; padding-right: 96px; }
+.cr-spotlight-head-text .cr-spotlight-niche { margin-bottom: 0; }
+
+.cr-spotlight-media { position: relative; width: 150px; flex-shrink: 0; }
 /* Small, equal square photo — same size for every creator */
 .cr-spotlight-img {
   width: 150px;
@@ -2710,8 +2721,8 @@ footer { background: var(--text); color: #fff; padding: 80px 48px 40px; }
 }
 .cr-spotlight-badge {
   position: absolute;
-  top: 14px;
-  left: 14px;
+  top: 16px;
+  right: 16px;
   font-family: var(--sans);
   font-size: 0.6875rem;
   font-weight: 600;
