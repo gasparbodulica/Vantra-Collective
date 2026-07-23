@@ -2875,3 +2875,29 @@ footer { background: var(--text); color: #fff; padding: 80px 48px 40px; }
 @media (max-width: 860px) {
   .roster-grid { grid-template-columns: 1fr; }
 }
+
+/* Phones: the 150px photo + badge clearance left almost no room for the name,
+   which overflowed the card. Shrink the photo, drop the badge into normal
+   flow, and let long words wrap instead of pushing the card wide. */
+@media (max-width: 600px) {
+  .cr-spotlight { padding: 18px; gap: 16px; }
+  .cr-spotlight-badge {
+    position: static;
+    align-self: flex-start;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .cr-spotlight-head { gap: 14px; }
+  .cr-spotlight-media { width: 92px; }
+  .cr-spotlight-img   { width: 92px; height: 92px; }
+  .cr-spotlight-head-text { padding-right: 0; }
+  .cr-spotlight-name  { font-size: 1.375rem; }
+  .cr-spotlight-stats { gap: 12px 20px; }
+  .cr-more-mark { font-size: 1.5rem; }
+}
+
+/* Never let a long name, handle or brand tag widen the card */
+.cr-spotlight-name,
+.cr-spotlight-niche,
+.cr-spotlight-bio,
+.cr-spotlight-brand-tags span { overflow-wrap: anywhere; }
