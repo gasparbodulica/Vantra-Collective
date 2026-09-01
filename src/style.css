@@ -1273,6 +1273,8 @@ nav.scrolled {
   letter-spacing: -0.01em;
   color: var(--text);
 }
+/* On the dark "Most Popular" card the label must be light to stay visible */
+.pricing-card--featured .pricing-custom-label { color: #fff; }
 
 .pricing-fee-note {
   font-family: var(--sans);
