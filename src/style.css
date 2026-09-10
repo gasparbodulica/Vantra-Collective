@@ -584,6 +584,13 @@ nav.scrolled {
 
 .wwd-left { position: sticky; top: 120px; }
 .wwd-left .section-headline { margin-top: 14px; }
+.wwd-tagline {
+  margin-top: 22px;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: 380px;
+}
 
 .stats-grid {
   display: grid;
@@ -777,7 +784,8 @@ nav.scrolled {
 /* ================================================
    SERVICES
    ================================================ */
-#services { padding: 128px 48px; }
+/* Services is now a sub-block inside #what-we-do (merged section) */
+.wwd-services { margin-top: 128px; scroll-margin-top: 90px; }
 
 .services-inner { max-width: 1280px; margin: 0 auto; }
 
@@ -2367,8 +2375,9 @@ footer { background: var(--text); color: #fff; padding: 80px 48px 40px; }
   .hero-bottom { grid-template-columns: 1fr; gap: 32px; }
   .hero-cta-wrap { flex-direction: row; align-items: center; justify-content: flex-start; }
 
-  #what-we-do, #approach, #services, #creators,
+  #what-we-do, #approach, #creators,
   #standard, #about, #contact { padding: 96px 32px; }
+  .wwd-services { margin-top: 96px; }
   .subpage-hero { padding: 120px 32px 72px; }
   #creator-roster, #brand-benefits { padding: 80px 32px; }
   .cr-roster-header { grid-template-columns: 1fr; gap: 32px; }
@@ -2422,8 +2431,9 @@ footer { background: var(--text); color: #fff; padding: 80px 48px 40px; }
   #hero { padding: 96px 24px 60px; }
   .hero-headline { font-size: clamp(3.25rem, 13vw, 5.5rem); }
 
-  #what-we-do, #approach, #services, #creators,
+  #what-we-do, #approach, #creators,
   #standard, #about, #contact { padding: 80px 24px; }
+  .wwd-services { margin-top: 80px; }
   .subpage-hero { padding: 100px 24px 60px; }
   .subpage-hero-headline { font-size: clamp(2.5rem, 10vw, 4rem); }
   #creator-roster, #brand-benefits { padding: 64px 24px; }
@@ -2659,6 +2669,61 @@ footer { background: var(--text); color: #fff; padding: 80px 48px 40px; }
   transition: color 0.25s ease;
 }
 .creators-roster-link:hover { color: var(--accent-dark); }
+
+/* ================================================
+   BRAND STRIP — "brands our creators have worked with"
+   ================================================ */
+.brandstrip {
+  background: var(--bg);
+  padding: 56px 0 20px;
+  overflow: hidden;
+}
+.brandstrip-label {
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 34px;
+}
+.brandstrip-viewport {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+.brandstrip-track {
+  display: flex;
+  align-items: center;
+  gap: 68px;
+  width: max-content;
+  animation: brandscroll 60s linear infinite;
+}
+.brandstrip:hover .brandstrip-track { animation-play-state: paused; }
+.brandstrip-item {
+  font-family: var(--display);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  opacity: 0.55;
+  white-space: nowrap;
+  transition: opacity 0.25s ease;
+}
+.brandstrip-item:hover { opacity: 1; }
+@keyframes brandscroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (max-width: 768px) {
+  .brandstrip-track { gap: 48px; }
+  .brandstrip-item { font-size: 1.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brandstrip-track { animation: none; flex-wrap: wrap; justify-content: center; width: auto; }
+  .brandstrip-item[aria-hidden="true"] { display: none; }
+}
 
 /* ================================================
    FEATURED ROSTER CREATOR (creators page)
