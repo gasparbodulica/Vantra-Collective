@@ -1223,15 +1223,15 @@ nav.scrolled {
 
 .pricing-plan {
   font-family: var(--display);
-  font-size: 0.75rem;
+  font-size: 1.75rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--text);
+  margin-bottom: 10px;
 }
 
-.pricing-card--featured .pricing-plan { color: rgba(255,255,255,0.55); }
+.pricing-card--featured .pricing-plan { color: #fff; }
 
 .pricing-amount {
   display: flex;
