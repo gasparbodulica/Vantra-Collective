@@ -2901,6 +2901,13 @@ footer { background: var(--text); color: #fff; padding: 80px 48px 40px; }
   margin-top: 6px;
 }
 
+.cr-spotlight-statnote {
+  margin: -10px 0 18px;
+  font-size: 0.6875rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
 .cr-spotlight-brands { margin: 22px 0; }
 .cr-spotlight-brands-label {
   display: block;
