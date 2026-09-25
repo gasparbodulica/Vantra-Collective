@@ -2701,14 +2701,24 @@ footer { background: var(--text); color: #fff; padding: 80px 48px 40px; }
   animation: brandscroll 60s linear infinite;
 }
 .brandstrip:hover .brandstrip-track { animation-play-state: paused; }
+.brandstrip-logo {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.8;
+  flex-shrink: 0;
+  transition: opacity 0.25s ease;
+}
+.brandstrip-logo:hover { opacity: 1; }
 .brandstrip-item {
   font-family: var(--display);
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--text);
-  opacity: 0.55;
+  opacity: 0.5;
   white-space: nowrap;
+  flex-shrink: 0;
   transition: opacity 0.25s ease;
 }
 .brandstrip-item:hover { opacity: 1; }
@@ -2718,11 +2728,12 @@ footer { background: var(--text); color: #fff; padding: 80px 48px 40px; }
 }
 @media (max-width: 768px) {
   .brandstrip-track { gap: 48px; }
-  .brandstrip-item { font-size: 1.5rem; }
+  .brandstrip-logo { height: 30px; }
+  .brandstrip-item { font-size: 1.35rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .brandstrip-track { animation: none; flex-wrap: wrap; justify-content: center; width: auto; }
-  .brandstrip-item[aria-hidden="true"] { display: none; }
+  .brandstrip-logo[aria-hidden="true"], .brandstrip-item[aria-hidden="true"] { display: none; }
 }
 
 /* ================================================
