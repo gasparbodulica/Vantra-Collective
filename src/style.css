@@ -54,7 +54,6 @@ ul { list-style: none; }
   transform: translateY(52px) scale(0.96);
   transition: opacity 0.65s var(--ease-out),
               transform 0.65s var(--spring);
-  will-change: transform, opacity;
 }
 .fade-in.visible {
   opacity: 1;
@@ -67,7 +66,6 @@ ul { list-style: none; }
   transform: translateX(-36px);
   transition: opacity 0.55s var(--ease-out),
               transform 0.55s var(--spring);
-  will-change: transform, opacity;
 }
 .pop-left.visible {
   opacity: 1;
@@ -80,7 +78,6 @@ ul { list-style: none; }
   transform: translateX(36px);
   transition: opacity 0.55s var(--ease-out),
               transform 0.55s var(--spring);
-  will-change: transform, opacity;
 }
 .pop-right.visible {
   opacity: 1;
@@ -93,7 +90,6 @@ ul { list-style: none; }
   transform: scale(0.7);
   transition: opacity 0.5s var(--ease-out),
               transform 0.5s var(--spring);
-  will-change: transform, opacity;
 }
 .pop-scale.visible {
   opacity: 1;
@@ -161,7 +157,7 @@ ul { list-style: none; }
   letter-spacing: -0.02em;
 }
 
-.divider { height: 1px; background: var(--border); }
+.divider { display: none; }
 
 .btn-primary {
   display: inline-block;
@@ -221,9 +217,7 @@ nav {
 }
 
 nav.scrolled {
-  background: rgba(245, 241, 235, 0.96);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(245, 241, 235, 0.98);
   padding: 16px 48px;
   box-shadow: 0 1px 0 var(--border);
 }
@@ -3008,7 +3002,7 @@ footer { background: var(--text); color: #fff; padding: 80px 48px 40px; }
 }
 .cases-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 24px;
 }
 .case {
@@ -3056,13 +3050,15 @@ footer { background: var(--text); color: #fff; padding: 80px 48px 40px; }
 }
 .case-hero-stat {
   display: flex;
-  align-items: baseline;
-  gap: 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
   padding: 16px 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   margin-bottom: 18px;
 }
+.case-hero-label { white-space: nowrap; }
 .case-hero-num {
   font-family: var(--display);
   font-size: 2.75rem;
@@ -3097,8 +3093,92 @@ footer { background: var(--text); color: #fff; padding: 80px 48px 40px; }
 @media (max-width: 1024px) {
   #case-studies { padding: 96px 32px; }
   .cases-header { flex-direction: column; align-items: flex-start; gap: 20px; }
-  .cases-grid { grid-template-columns: 1fr; gap: 20px; }
 }
 @media (max-width: 768px) {
   #case-studies { padding: 80px 24px; }
+  .cases-grid { grid-template-columns: 1fr; gap: 20px; }
+  .cases-quotes { grid-template-columns: 1fr !important; }
+}
+
+/* ---- Testimonial quotes (under the case cards) ---- */
+.cases-quotes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 48px;
+}
+.cquote {
+  margin: 0;
+  position: relative;
+  padding-left: 26px;
+}
+.cquote::before {
+  content: "\201C";
+  position: absolute;
+  left: -4px;
+  top: -10px;
+  font-family: var(--display);
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.9;
+}
+.cquote p {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0 0 14px;
+}
+.cquote cite {
+  font-style: normal;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ================================================
+   CASE-STUDIES "RESULTS" BAND — Vantra orange
+   (revertable — delete this block to return to cream)
+   ================================================ */
+#case-studies { background: var(--accent); }
+#case-studies .section-label { color: rgba(255, 255, 255, 0.7); }
+#case-studies .section-headline { color: #FFFFFF; }
+#case-studies .cases-intro { color: rgba(255, 255, 255, 0.85); }
+#case-studies .cases-note { color: rgba(255, 255, 255, 0.8); }
+#case-studies .cases-note a { color: #FFFFFF; text-decoration: underline; }
+#case-studies .cquote p { color: #FFFFFF; }
+#case-studies .cquote cite { color: rgba(255, 255, 255, 0.7); }
+#case-studies .cquote::before { color: rgba(255, 255, 255, 0.65); }
+
+/* ================================================
+   FAQ
+   ================================================ */
+#faq { padding: 128px 48px; }
+.faq-inner { max-width: 1280px; margin: 0 auto; }
+.faq-header { margin-bottom: 52px; }
+.faq-header .section-headline { margin-bottom: 0; }
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 48px;
+}
+.faq-q {
+  font-family: var(--display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.faq-a {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+@media (max-width: 1024px) { #faq { padding: 96px 32px; } }
+@media (max-width: 768px) {
+  #faq { padding: 80px 24px; }
+  .faq-grid { grid-template-columns: 1fr; gap: 28px; }
 }

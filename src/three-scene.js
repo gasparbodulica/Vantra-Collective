@@ -141,8 +141,9 @@ export function initHeroScene(containerId) {
   const clock = new THREE.Clock();
   const allNodes = [brandHub, creatorHub, ...brandSats, ...creatorSats];
 
-  (function animate() {
-    requestAnimationFrame(animate);
+  let rafId = null;
+  function animate() {
+    rafId = requestAnimationFrame(animate);
     const t = clock.getElapsedTime();
 
     // Float nodes (bob only — no side-swapping rotation)
@@ -186,7 +187,19 @@ export function initHeroScene(containerId) {
     camera.lookAt(0, 0, 0);
 
     renderer.render(scene, camera);
-  }());
+  }
+
+  /* ---- Only render while the hero is on screen (saves the GPU during scroll) ---- */
+  const io = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      if (rafId === null) animate();
+    } else if (rafId !== null) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+  }, { threshold: 0 });
+  io.observe(container);
+  animate();
 
   /* ---- Resize ---- */
   window.addEventListener('resize', () => {
